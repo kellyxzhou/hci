@@ -1,0 +1,131 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .leaderboard-container {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  /* Title and settings icon */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    margin: 0;
+  }
+  
+  .settings-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  /* Top three section */
+  .top-three {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .place {
+    text-align: center;
+  }
+  
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid #61B89E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px; /* Space between the circle and player name */
+  }
+  
+  .icon {
+    border: 3px solid #61B89E;
+  }
+  
+  .user-icon {
+    background-color: #61B89E;
+    color: white;
+  }
+  
+  .place-circle {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #61B89E;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+  }
+  
+  /* Rest of leaderboard styling */
+  .rest-of-leaderboard {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .player-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Add more space between position number and circle icon */
+  .position {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    margin-right: 15px; /* Adjust this value for more/less space */
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-right: 20px; /* Adjust this value for more/less space */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #61B89E;
+  }
+  
+  p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .points {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }
+  
