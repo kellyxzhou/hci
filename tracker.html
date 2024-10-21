@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tracker Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tracker-page-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">Tracker</h1>
+            <img src="settings-icon.png" alt="Settings" class="settings-icon">
+        </div>
+
+               <!-- Challenges Section -->
+               <div class="tracker-section">
+                <div class="section-header">
+                    <h2 class="section-title">Challenges</h2>
+                    <a href="#" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <h3>Carpool to work</h3>
+                        <p><span id="countdown">7 days and 0 hours left</span></p>
+                    </div>
+                    <div class="tracker-friends-info">
+                        <span>2 friends joined</span>
+                        <div class="tracker-progress-bar">
+                            <div class="tracker-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Current Challenges Section -->
+        <div class="tracker-section">
+            <div class="section-header">
+                <h2 class="section-title">Current Challenges</h2>
+                <a href="#" class="view-all">VIEW ALL</a>
+            </div>
+            <div class="tracker-challenge-list">
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <h3>Shorter showers</h3>
+                        <p>500/2000 ML</p>
+                    </div>
+                    <button class="tracker-add-btn">+</button>
+                </div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <h3>Walk</h3>
+                        <p>0/10000 STEPS</p>
+                    </div>
+                    <button class="tracker-add-btn">+</button>
+                </div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <h3>Water Plants</h3>
+                        <p>0/1 TIMES</p>
+                    </div>
+                    <button class="tracker-add-btn">+</button>
+                </div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <h3>Less electricity</h3>
+                        <p>30/30 MIN</p>
+
+                    <button class="tracker-add-btn">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Habit Link -->
+        <a href="addHabit.html" class="tracker-add-habit-link">Add Habit</a>
+
+
+        <!-- Bottom Navigation -->
+        <div class="tracker-bottom-nav">
+            <a href="home.html" class="tracker-nav-item">Home</a>
+            <a href="tracker.html" class="tracker-nav-item active">Tracker</a>
+            <a href="Leaderboard.html" class="tracker-nav-item">Ranking</a>
+            <a href="profile.html" class="tracker-nav-item">Profile</a>
+        </div>
+    </div>
+
+
+         <!-- JavaScript for Countdown -->
+    <script>
+        // Initial days and hours
+        let daysLeft = 7;
+        let hoursLeft = 0;
+
+        // Function to update the countdown display
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+
+            // Decrease hours
+            if (hoursLeft > 0) {
+                hoursLeft -= 1;
+            } else {
+                // Decrease days and reset hours to 23 if days are left
+                if (daysLeft > 0) {
+                    daysLeft -= 1;
+                    hoursLeft = 23;
+                }
+            }
+
+            // Update the countdown text
+            countdownElement.textContent = `${daysLeft} days and ${hoursLeft} hours left`;
+        }
+
+        // Update the countdown every hour (3600000 ms)
+        setInterval(updateCountdown, 3600000);
+
+        // Initial update
+        updateCountdown();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Add New Habit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="add-habit-container">
+        <!-- Header -->
+        <div class="header">
+            <a href="tracker.html" class="back-button">&larr;</a>
+            <h1 class="title">Add New Habit</h1>
+            <img src="settings-icon.png" alt="Settings" class="settings-icon">
+        </div>
+
+        <!-- Date Selection -->
+        <div class="date-selection">
+            <div class="date-item selected">3<br><span>SAT</span></div>
+            <div class="date-item">4<br><span>SUN</span></div>
+            <div class="date-item">5<br><span>MON</span></div>
+            <div class="date-item">6<br><span>TUE</span></div>
+            <div class="date-item">7<br><span>WED</span></div>
+            <div class="date-item">8<br><span>THU</span></div>
+            <div class="date-item">9<br><span>FRI</span></div>
+        </div>
+
+        <!-- Name Input -->
+        <div class="input-section">
+            <label for="habit-name">NAME</label>
+            <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name">
+        </div>
+
+        <!-- Goal Input -->
+        <div class="input-section">
+            <label for="goal">GOAL</label>
+            <div class="goal-container">
+                <input type="number" id="goal" class="goal-input" placeholder="1">
+                <span>times</span>
+                <button class="edit-button">&#9998;</button>
+            </div>
+            <div class="goal-frequency">
+                <span>Daily</span>
+                <span>Every day</span>
+            </div>
+        </div>
+
+        <!-- Reminder Section -->
+        <div class="input-section">
+            <label>REMINDERS</label>
+            <div class="reminder-container">
+                <span>Remember to set off time</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="time-picker">
+                <input type="time" class="time-input" value="09:30">
+                <span>Every day</span>
+            </div>
+            <button class="add-reminder-btn">Add Reminder</button>
+        </div>
+
+        <!-- Add Habit Button -->
+        <a href="tracker.html" class="add-habit-btn">Add Habit</a>
+    </div>
+</body>
+</html>
