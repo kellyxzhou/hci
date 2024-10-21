@@ -9,6 +9,79 @@ body {
   height: 100vh;
 }
 
+.container {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.heading {
+  text-align: left;
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-name {
+  color: #61B89E;
+}
+
+.focus-question {
+  font-size: 16px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.challenges {
+  margin-top: 20px;
+}
+
+.challenges h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.view-all {
+  font-size: 14px;
+  color: #61B89E;
+  text-decoration: none;
+  float: right;
+}
+
+.challenge-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.challenge-card h3 {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.challenge-card p {
+  margin: 5px 0;
+  color: gray;
+}
+
+.join-btn {
+  background-color: #61B89E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 .leaderboard-container {
   width: 90%;
   max-width: 400px;
