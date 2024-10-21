@@ -1,277 +1,295 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .leaderboard-container {
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  /* Title and settings icon */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: 600;
-    color: black;
-    margin: 0;
-  }
-  
-  .settings-icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-  
-  /* Top three section */
-  .top-three {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .place {
-    text-align: center;
-  }
-  
-  .circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: white;
-    border: 3px solid #61B89E;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-bottom: 10px; /* Space between the circle and player name */
-  }
-  
-  .icon {
-    border: 3px solid #61B89E;
-  }
-  
-  .user-icon {
-    background-color: #61B89E;
-    color: white;
-  }
-  
-  .place-circle {
-    position: absolute;
-    bottom: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #61B89E;
-    color: white;
-    font-size: 12px;
-    text-align: center;
-    line-height: 20px;
-  }
-  
-  /* Rest of leaderboard styling */
-  .rest-of-leaderboard {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .player-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 15px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Add more space between position number and circle icon */
-  .position {
-    font-weight: bold;
-    font-size: 18px;
-    color: black;
-    margin-right: 15px; /* Adjust this value for more/less space */
-  }
-  
-  .icon {
-    font-size: 24px;
-    margin-right: 20px; /* Adjust this value for more/less space */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-    border: 2px solid #61B89E;
-  }
-  
-  p {
-    flex-grow: 1;
-    margin: 0;
-    font-size: 16px;
-    color: black;
-  }
-  
-  .points {
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-  }
-  
-  .tracker-page-container {
-    width: 100%;
-    max-width: 430px; /* iPhone 14 max width */
-    padding: 20px;
-    box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+.leaderboard-container {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Title and settings icon */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
 }
 
 .settings-icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Top three section */
+.top-three {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.place {
+  text-align: center;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid #61B89E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+  /* Space between the circle and player name */
+}
+
+.icon {
+  border: 3px solid #61B89E;
+}
+
+.user-icon {
+  background-color: #61B89E;
+  color: white;
+}
+
+.place-circle {
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #61B89E;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Rest of leaderboard styling */
+.rest-of-leaderboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Add more space between position number and circle icon */
+.position {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin-right: 15px;
+  /* Adjust this value for more/less space */
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 20px;
+  /* Adjust this value for more/less space */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #61B89E;
+}
+
+p {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 16px;
+  color: black;
+}
+
+.points {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.tracker-page-container {
+  width: 100%;
+  max-width: 430px;
+  /* iPhone 14 max width */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.settings-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .tracker-section {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .section-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
 }
 
 .view-all {
-    font-size: 14px;
-    color: #61B89E;
-    text-decoration: none;
+  font-size: 14px;
+  color: #61B89E;
+  text-decoration: none;
 }
 
 .tracker-challenge-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tracker-challenge-info h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tracker-challenge-info p {
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: gray;
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: gray;
 }
 
 .tracker-friends-info {
-    text-align: right;
+  text-align: right;
 }
 
 .tracker-progress-bar {
-    width: 100%;
-    height: 6px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin-top: 5px;
-    position: relative;
+  width: 100%;
+  height: 6px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 5px;
+  position: relative;
 }
 
 .tracker-progress {
-    width: 50%;
-    height: 100%;
-    background-color: #61B89E;
-    border-radius: 5px;
+  width: 50%;
+  height: 100%;
+  background-color: #61B89E;
+  border-radius: 5px;
 }
 
 .tracker-add-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: none;
-    background-color: #61B89E;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #61B89E;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .tracker-add-habit-btn {
-    width: 100%;
-    padding: 15px;
-    background-color: #61B89E;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    margin: 20px 0;
+  width: 100%;
+  padding: 15px;
+  background-color: #61B89E;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 20px 0;
 }
 
 .tracker-bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  align-items: center;
+  width: 430px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+  right: 0;
+  text-align: center;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
 }
 
 .tracker-nav-item {
-    text-decoration: none;
-    color: gray;
-    font-size: 14px;
+  text-decoration: none;
+  color: gray;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.tracker-nav-item.active {
-    color: #61B89E;
-}
+/* .tracker-nav-item.active {
+  color: #61B89E;
+} */
 
 /* Add Habit Button Styled as per iPhone 14 UI */
 .tracker-add-habit-link {
   display: block;
   width: 90%;
-  max-width: 380px;  /* Adjust for iPhone 14 width */
+  max-width: 380px;
+  /* Adjust for iPhone 14 width */
   margin: 20px auto;
   padding: 18px;
   background-color: #61B89E;
@@ -279,25 +297,31 @@ body {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-  border-radius: 16px; /* More rounded edges */
+  border-radius: 16px;
+  /* More rounded edges */
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for elevation */
   transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
   cursor: pointer;
 }
 
 .tracker-add-habit-link:active {
-  background-color: #52a188; /* Darker shade on click */
-  transform: scale(0.98);    /* Slight shrink effect on click */
+  background-color: #52a188;
+  /* Darker shade on click */
+  transform: scale(0.98);
+  /* Slight shrink effect on click */
 }
 
 .tracker-add-habit-link:hover {
-  background-color: #57b195; /* Lighter shade on hover */
+  background-color: #57b195;
+  /* Lighter shade on hover */
 }
 
 .add-habit-container {
   width: 100%;
-  max-width: 430px;  /* iPhone 14 screen size */
+  max-width: 430px;
+  /* iPhone 14 screen size */
   padding: 20px 16px;
   box-sizing: border-box;
   background-color: #fff;
@@ -448,7 +472,7 @@ label {
   border-radius: 12px;
 }
 
-.toggle-switch input:checked + .slider {
+.toggle-switch input:checked+.slider {
   background-color: #61B89E;
 }
 
@@ -464,7 +488,7 @@ label {
   border-radius: 50%;
 }
 
-.toggle-switch input:checked + .slider:before {
+.toggle-switch input:checked+.slider:before {
   transform: translateX(18px);
 }
 
