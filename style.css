@@ -280,9 +280,9 @@ p {
   align-items: center;
 }
 
-/* .tracker-nav-item.active {
+.tracker-nav-item.active {
   color: #61B89E;
-} */
+}
 
 /* Add Habit Button Styled as per iPhone 14 UI */
 .tracker-add-habit-link {
@@ -354,68 +354,44 @@ p {
 .date-selection {
   display: flex;
   overflow-x: auto;
-  /* Allow horizontal scrolling */
   white-space: nowrap;
-  /* Prevent wrapping of items */
   padding: 10px;
-  /* Add some padding */
   border-radius: 8px;
-  /* Round the corners */
   background-color: #ffffff;
-  /* White background for the date selection */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Add a slight shadow */
 }
 
 .date-item {
   display: inline-block;
   width: 60px;
-  /* Set a fixed width for each item */
   text-align: center;
-  /* Center the text */
   cursor: pointer;
-  /* Change cursor on hover */
   padding: 10px;
-  /* Add some padding */
   margin-right: 10px;
-  /* Space between items */
   border-radius: 20px;
-  /* Round corners to create pill shape */
   transition: background-color 0.3s, border 0.3s;
-  /* Smooth transitions */
   border: 2px solid transparent;
-  /* Initial transparent border */
 }
 
 .date-item.selected {
   background-color: white;
-  /* Background for selected item */
   color: #2c7a7b;
-  /* Text color for selected item */
   border-color: #2c7a7b;
-  /* Border color for selected item */
 }
 
 .date-item:hover {
   background-color: rgba(44, 122, 123, 0.1);
-  /* Light background on hover */
   border-color: #2c7a7b;
-  /* Border color on hover */
   color: #2c7a7b;
-  /* Change text color on hover */
 }
 
 .date-item span {
   display: block;
-  /* Block display for day names */
   font-size: 14px;
-  /* Adjust font size for day names */
   color: #6c757d;
-  /* Light color for day names */
 }
 
 .input-section {
-  padding-top: 10px;
+  padding-top: 5px;
   margin-bottom: 24px;
 }
 
@@ -429,11 +405,18 @@ label {
 
 .habit-input {
   width: 100%;
-  padding: 14px 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background-color: #f8f8f8;
+  padding: 8px 0;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid #2c7a7b;
+  background-color: transparent;
+  color: #333;
+  outline: none;
+}
+
+.habit-input::placeholder {
+  color: #aaa;
+  font-weight: 400;
 }
 
 .goal-container {
@@ -555,8 +538,7 @@ label {
 
 .add-habit-btn {
   display: block;
-  width: 100%;
-  padding: 16px;
+  padding: 12px;
   background-color: #61B89E;
   color: white;
   font-size: 18px;
