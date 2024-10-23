@@ -33,3 +33,34 @@ function generateCalendar() {
 
 // Call the function to generate the calendar on page load
 window.onload = generateCalendar;
+
+
+// Initial days and hours
+let daysLeft = 5;
+let hoursLeft = 13;
+
+// Function to update the countdown display
+function updateCountdown() {
+    const countdownElement = document.getElementById('countdown');
+
+    // Decrease hours
+    if (hoursLeft > 0) {
+        hoursLeft -= 1;
+    } else {
+        // Decrease days and reset hours to 23 if days are left
+        if (daysLeft > 0) {
+            daysLeft -= 1;
+            hoursLeft = 23;
+        }
+    }
+
+    // Update the countdown text
+    countdownElement.textContent = `${daysLeft} days ${hoursLeft} hours left`;
+}
+
+// Update the countdown every hour (3600000 ms)
+setInterval(updateCountdown, 3600000);
+
+// Initial update
+updateCountdown();
+
