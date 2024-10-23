@@ -25,13 +25,13 @@
             <div class="tracker-challenge-card">
                 <div class="tracker-challenge-info">
                     <h3>Carpool to work</h3>
-                    <p><span id="countdown">7 days and 0 hours left</span></p>
+                    <p><span id="countdown">5 days 13 hours left</span></p>
+                    <div class="tracker-progress-bar">
+                        <div class="tracker-progress" style="width: 50%;"></div>
+                    </div>
                 </div>
                 <div class="tracker-friends-info">
                     <span>2 friends joined</span>
-                    <div class="tracker-progress-bar">
-                        <div class="tracker-progress"></div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -68,68 +68,35 @@
                     <div class="tracker-challenge-info">
                         <h3>Less electricity</h3>
                         <p>30/30 MIN</p>
-
-                        <button class="tracker-add-btn">+</button>
                     </div>
+                    <button class="tracker-add-btn">+</button>
                 </div>
             </div>
 
             <!-- Add Habit Link -->
-            <a href="addHabit.html" class="tracker-add-habit-link">Add Habit</a>
+            <a href="addHabit.html" class="add-habit-btn">Add Habit</a>
+        </div>
 
+        <div class="tracker-bottom-nav">
+            <a href="home.html" class="tracker-nav-item">
+                <img src="img/home.svg" alt="Home" class="nav-icon" />
+                Home
+            </a>
+            <a href="tracker.html" class="tracker-nav-item">
+                <img src="img/add.svg" alt="Tracker" class="nav-icon" />
+                Tracker
+            </a>
+            <a href="Leaderboard.html" class="tracker-nav-item">
+                <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
+                Ranking
+            </a>
+            <a href="profile.html" class="tracker-nav-item">
+                <img src="img/profile.svg" alt="Profile" class="nav-icon" />
+                Profile
+            </a>
+        </div>
 
-            <!-- Bottom Navigation -->
-            <div class="tracker-bottom-nav">
-                <a href="home.html" class="tracker-nav-item">
-                    <img src="img/home.svg" alt="Home" class="nav-icon" />
-                    Home
-                </a>
-                <a href="tracker.html" class="tracker-nav-item">
-                    <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-                    Tracker
-                </a>
-                <a href="Leaderboard.html" class="tracker-nav-item">
-                    <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
-                    Ranking
-                </a>
-                <a href="profile.html" class="tracker-nav-item">
-                    <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-                    Profile
-                </a>
-            </div>
-
-            <!-- JavaScript for Countdown -->
-            <script>
-                // Initial days and hours
-                let daysLeft = 7;
-                let hoursLeft = 0;
-
-                // Function to update the countdown display
-                function updateCountdown() {
-                    const countdownElement = document.getElementById('countdown');
-
-                    // Decrease hours
-                    if (hoursLeft > 0) {
-                        hoursLeft -= 1;
-                    } else {
-                        // Decrease days and reset hours to 23 if days are left
-                        if (daysLeft > 0) {
-                            daysLeft -= 1;
-                            hoursLeft = 23;
-                        }
-                    }
-
-                    // Update the countdown text
-                    countdownElement.textContent = `${daysLeft} days and ${hoursLeft} hours left`;
-                }
-
-                // Update the countdown every hour (3600000 ms)
-                setInterval(updateCountdown, 3600000);
-
-                // Initial update
-                updateCountdown();
-            </script>
-
+        <script src="tracker.js"></script>
 </body>
 
 </html>
