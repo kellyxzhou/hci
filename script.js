@@ -1,4 +1,3 @@
-// script.js
 function selectDate(element) {
     // Remove 'selected' class from all date items
     const items = document.querySelectorAll('.date-item');
@@ -34,8 +33,6 @@ function generateCalendar() {
 // Call the function to generate the calendar on page load
 window.onload = generateCalendar;
 
-
-// Initial days and hours
 let daysLeft = 5;
 let hoursLeft = 13;
 
@@ -64,3 +61,26 @@ setInterval(updateCountdown, 3600000);
 // Initial update
 updateCountdown();
 
+document.addEventListener("DOMContentLoaded", function () {
+    const goalDailyToggle = document.getElementById("goal-daily-toggle");
+    const reminderDailyToggle = document.getElementById("reminder-daily-toggle");
+
+    const goalInputSection = document.getElementById("goal-section").querySelector(".goal-container");
+    const reminderTimePicker = document.getElementById("reminder-section").querySelector(".time-picker");
+
+    goalDailyToggle.addEventListener("change", function () {
+        if (goalDailyToggle.checked) {
+            goalInputSection.style.display = "none";
+        } else {
+            goalInputSection.style.display = "flex";
+        }
+    });
+
+    reminderDailyToggle.addEventListener("change", function () {
+        if (reminderDailyToggle.checked) {
+            reminderTimePicker.style.display = "none";
+        } else {
+            reminderTimePicker.style.display = "flex";
+        }
+    });
+});
