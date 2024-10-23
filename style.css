@@ -9,6 +9,158 @@ body {
   height: 100vh;
 }
 
+.homeContainer {
+  width: 100%;
+  max-width: 430px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.welcome-section {
+  margin-bottom: 40px;
+}
+
+.welcome-section h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.welcome-section .name {
+  color: #61B89E;
+}
+
+.welcome-section p {
+  color: #666;
+  font-size: 18px;
+}
+
+.challenges-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.challenges-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.view-all {
+  color: #61B89E;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.challenge-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 5px;
+  margin-bottom: 16px;
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.challenge-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.challenge-type {
+  color: #666;
+  font-size: 16px;
+}
+
+.challenge-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+}
+
+.participant-avatars {
+  display: flex;
+  margin-right: 12px;
+}
+
+.participant-avatars img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: -10px;
+}
+
+.join-button {
+  background: #61B89E;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 16px;
+  border-top: 1px solid #eee;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-item.active {
+  color: #61B89E;
+}
+
+.nav-item svg {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+}
+
+/* New styles for join functionality */
+.join-checkbox {
+  display: none;
+}
+
+.join-checkbox:checked+label {
+  background: #666;
+}
+
+.join-checkbox:checked~.participants .friend-count::after {
+  content: " (You joined!)";
+  color: #61B89E;
+}
+
+.join-checkbox:checked~.participants .friend-count .count {
+  color: #61B89E;
+}
+
 .leaderboard-container {
   width: 90%;
   max-width: 400px;
