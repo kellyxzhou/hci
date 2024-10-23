@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class=" add-habit-container">
+    <div class="add-habit-container">
         <!-- Header -->
         <div class="header">
             <a href="tracker.html" class="back-button">&larr;</a>
@@ -17,31 +17,33 @@
             <img src="img/settings.png" alt="Settings" class="settings-icon">
         </div>
 
-        <!-- Date Selection -->
         <div class="date-selection" id="dateSelection"></div>
 
         <!-- Name Input -->
         <div class="input-section">
             <label for="habit-name">NAME</label>
-            <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name">
+            <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name" value="">
         </div>
 
-        <!-- Goal Input -->
-        <div class="input-section">
+        <!-- Goal Section with Toggle -->
+        <div class="input-section" id="goal-section">
             <label for="goal">GOAL</label>
             <div class="goal-container">
-                <input type="number" id="goal" class="goal-input" placeholder="1">
-                <span>times</span>
+                <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
+                <span>times or more per day</span>
                 <button class="edit-button">&#9998;</button>
             </div>
             <div class="goal-frequency">
-                <span>Daily</span>
-                <span>Every day</span>
+                <label for="goal-daily-toggle">Set Goal for Daily?</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="goal-daily-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
 
-        <!-- Reminder Section -->
-        <div class="input-section">
+        <!-- Reminder Section with Toggle -->
+        <div class="input-section" id="reminder-section">
             <label>REMINDERS</label>
             <div class="reminder-container">
                 <span>Remember to set off time</span>
@@ -51,34 +53,20 @@
                 </label>
             </div>
             <div class="time-picker">
-                <input type="time" class="time-input" value="09:30">
-                <span>Every day</span>
+                <input type="time" class="time-input" value="00:00">
+            </div>
+            <div class="reminder-frequency">
+                <label for="reminder-daily-toggle">Set Reminder for Daily?</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="reminder-daily-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
             <button class="add-reminder-btn">Add Reminder</button>
         </div>
 
         <!-- Add Habit Button -->
         <a href="tracker.html" class="add-habit-btn">Add Habit</a>
-
-        <!-- <div class="tracker-bottom-nav">
-            <a href="home.html" class="tracker-nav-item">
-                <img src="img/home.svg" alt="Home" class="nav-icon" />
-                Home
-            </a>
-            <a href="tracker.html" class="tracker-nav-item">
-                <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-                Tracker
-            </a>
-            <a href="Leaderboard.html" class="tracker-nav-item">
-                <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
-                Ranking
-            </a>
-            <a href="profile.html" class="tracker-nav-item">
-                <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-                Profile
-            </a>
-        </div> -->
-    </div>
     </div>
 
     <script src="script.js"></script>
