@@ -19,30 +19,29 @@
 
         <div class="date-selection" id="dateSelection"></div>
 
-        <!-- Name Input -->
         <div class="input-section">
             <label for="habit-name">NAME</label>
             <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name" value="">
         </div>
 
-        <!-- Goal Section with Toggle -->
         <div class="input-section" id="goal-section">
             <label for="goal">GOAL</label>
             <div class="goal-container">
-                <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
-                <span>times or more per day</span>
-                <button class="edit-button">&#9998;</button>
-            </div>
-            <div class="goal-frequency">
-                <label for="goal-daily-toggle">Set Goal for Daily?</label>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="goal-daily-toggle">
-                    <span class="slider"></span>
-                </label>
+                <div>
+                    <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
+                    <span>times or more per day</span>
+                    <button class="edit-button">&#9998;</button>
+                </div>
+                <div class="goal-frequency">
+                    <label for="goal-daily-toggle">Set Goal for Daily?</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="goal-daily-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
 
-        <!-- Reminder Section with Toggle -->
         <div class="input-section" id="reminder-section">
             <label>REMINDERS</label>
             <div class="reminder-container">
@@ -55,10 +54,10 @@
             <div class="time-picker">
                 <input type="time" class="time-input" value="00:00">
             </div>
-            <div class="reminder-frequency">
-                <label for="reminder-daily-toggle">Set Reminder for Daily?</label>
+            <div class="goal-frequency">
+                <label for="goal-daily-toggle">Set Reminder for Daily?</label>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="reminder-daily-toggle">
+                    <input type="checkbox" id="goal-daily-toggle">
                     <span class="slider"></span>
                 </label>
             </div>
