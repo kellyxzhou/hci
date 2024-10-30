@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tracker Page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -24,15 +26,19 @@
             </div>
             <div class="tracker-challenge-card">
                 <div class="tracker-challenge-info">
-                    <h3>Carpool to work</h3>
-                    <p><span id="countdown">5 days 13 hours left</span></p>
-                    <div class="tracker-progress-bar">
-                        <div class="tracker-progress" style="width: 50%;"></div>
+                    <div class="progress-ring">
+                        <svg class="progress-circle" width="40" height="40">
+                            <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                            <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+                        </svg>
+                        <span class="emoji">🕒</span>
+                    </div>
+                    <div class="info-text">
+                        <h3>Carpool to work</h3>
+                        <p>5 days 13 hours left</p>
                     </div>
                 </div>
-                <div class="tracker-friends-info">
-                    <span>2 friends joined</span>
-                </div>
+                <button class="tracker-add-btn">+</button>
             </div>
         </div>
 
@@ -42,36 +48,72 @@
                 <h2 class="section-title">Current Challenges</h2>
                 <a href="#" class="view-all">VIEW ALL</a>
             </div>
-            <div class="tracker-challenge-list">
-                <div class="tracker-challenge-card">
-                    <div class="tracker-challenge-info">
+            <div class="tracker-challenge-card">
+                <div class="tracker-challenge-info">
+                    <div class="progress-ring">
+                        <svg class="progress-circle" width="40" height="40">
+                            <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                            <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+                        </svg>
+                        <span class="emoji">💧</span>
+                    </div>
+                    <div class="info-text">
                         <h3>Shorter showers</h3>
                         <p>500/2000 ML</p>
                     </div>
-                    <button class="tracker-add-btn">+</button>
                 </div>
-                <div class="tracker-challenge-card">
-                    <div class="tracker-challenge-info">
-                        <h3>Walk</h3>
-                        <p>0/10000 STEPS</p>
-                    </div>
-                    <button class="tracker-add-btn">+</button>
-                </div>
-                <div class="tracker-challenge-card">
-                    <div class="tracker-challenge-info">
-                        <h3>Water Plants</h3>
-                        <p>0/1 TIMES</p>
-                    </div>
-                    <button class="tracker-add-btn">+</button>
-                </div>
-                <div class="tracker-challenge-card">
-                    <div class="tracker-challenge-info">
-                        <h3>Less electricity</h3>
-                        <p>30/30 MIN</p>
-                    </div>
-                    <button class="tracker-add-btn">+</button>
-                </div>
+                <button class="tracker-add-btn">+</button>
             </div>
+
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <div class="progress-ring">
+                            <svg class="progress-circle" width="40" height="40">
+                                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+                            </svg>
+                            <span class="emoji">🚶‍♂️</span>
+                        </div>
+                        <div class="info-text">
+                            <h3>Walk</h3>
+                            <p>0/10000 STEPS</p>
+                        </div>
+                    </div>
+                    <button class="tracker-add-btn">+</button>
+                </div>
+<div class="tracker-challenge-card">
+    <div class="tracker-challenge-info">
+        <div class="progress-ring">
+            <svg class="progress-circle" width="40" height="40">
+                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+            </svg>
+            <span class="emoji">🌿</span>
+        </div>
+        <div class="info-text">
+            <h3>Water Plants</h3>
+            <p>0/1 TIMES</p>
+        </div>
+    </div>
+    <button class="tracker-add-btn">+</button>
+</div>
+
+<div class="tracker-challenge-card">
+    <div class="tracker-challenge-info">
+        <div class="progress-ring">
+            <svg class="progress-circle" width="40" height="40">
+                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+            </svg>
+            <span class="emoji">‍🧘🏻‍♂️‍</span>
+        </div>
+        <div class="info-text">
+            <h3>Less electricity</h3>
+            <p>0/1 TIMES</p>
+        </div>
+    </div>
+    <button class="tracker-add-btn">+</button>
+</div>
 
             <!-- Add Habit Link -->
             <a href="addHabit.html" class="add-habit-btn">Add Habit</a>

@@ -6,18 +6,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 40px; /* Adjust this value based on the header's height */
 }
 
 .homeContainer {
   width: 100%;
   max-width: 430px;
-  padding: 5px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .welcome-section {
-  margin-bottom: 40px;
+  padding-top: 0; 
 }
 
 .welcome-section h2 {
@@ -56,9 +56,11 @@ body {
   background: #fff;
   border: 1px solid #eee;
   border-radius: 16px;
-  padding: 5px;
-  margin-bottom: 16px;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Added box shadow */
 }
+
 
 .challenge-header {
   display: flex;
@@ -162,6 +164,7 @@ body {
 }
 
 .leaderboard-container {
+  padding-top: 90px;
   width: 90%;
   max-width: 400px;
 }
@@ -192,33 +195,45 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 0px; /* Adjusts the space between the place elements */
 }
 
 .place {
   text-align: center;
+  display: flex;
+  flex-direction: column; /* Allows stacking of the circle and text vertically */
+  align-items: center; /* Centers the circle horizontally */
 }
 
 .circle {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background-color: white;
+  border-radius: 100%;
+  background-color: #C4C4C4;
   border: 3px solid #61B89E;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* Aligns the content inside the circle to the bottom */
   position: relative;
-  margin-bottom: 10px;
-  /* Space between the circle and player name */
+  margin-bottom: 10px; /* Reduced margin for spacing between circle and text */
 }
 
-.icon {
-  border: 3px solid #61B89E;
-}
-
-.user-icon {
+.place-circle {
+  position: absolute;
+  bottom: -10px; /* Adjust this value to position the circle if needed */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   background-color: #61B89E;
   color: white;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
+
+.user-icon, .icon {
+  margin-right: 25px; /* Creates larger gap */
 }
 
 .place-circle {
@@ -247,7 +262,7 @@ body {
   background-color: white;
   border: 2px solid #ddd;
   border-radius: 15px;
-  padding: 10px;
+  padding: 8px 20px; /* 5px for top and bottom, 20px for left and right */
   margin-bottom: 10px;
 }
 
@@ -279,10 +294,15 @@ p {
 }
 
 .points {
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
+  color: #4F4F4F;
+  font-weight: normal; /* Standard weight, except for the "You" row */
 }
+
+.user-row {
+  background-color: #61B89E; /* Green background for "You" row */
+  color: white; /* White text for contrast */
+}
+
 
 .tracker-page-container {
   width: 100%;
@@ -313,6 +333,7 @@ p {
 
 .tracker-section {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .section-header {
@@ -330,7 +351,7 @@ p {
 .view-all {
   font-size: 14px;
   color: #61B89E;
-  text-decoration: none;
+  font-weight: bold;
 }
 
 .tracker-challenge-card {
@@ -344,11 +365,56 @@ p {
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.tracker-challenge-info {
+  display: flex;
+  align-items: center; /* Aligns the emoji/progress ring and text vertically */
+}
+
+.progress-ring {
+  position: relative;
+  margin-right: 10px; /* Space between the progress ring and text */
+}
+
+.progress-circle {
+  transform: rotate(-90deg); /* Rotate to start from the top */
+}
+
+.progress-background {
+  fill: none;
+  stroke: #e6e6e6; /* Background color of the ring */
+  stroke-width: 4; /* Adjust the thickness */
+}
+
+.progress-value {
+  fill: none;
+  stroke: #61B89E; /* Color of the progress ring */
+  stroke-width: 4; /* Adjust the thickness */
+  transition: stroke-dashoffset 0.5s; /* Smooth transition */
+}
+
+/* Set the stroke-dashoffset based on progress */
+.progress-value {
+  stroke-dashoffset: 56.55; /* Example value for 50% completion */
+}
+
+.emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the emoji */
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column; /* Stack the text vertically */
+}
 
 .tracker-challenge-info h3 {
   margin: 0;
   font-size: 16px;
   font-weight: 500;
+  text-align: left; 
+  padding-left: 0;  
 }
 
 .tracker-challenge-info p {
@@ -378,15 +444,28 @@ p {
 }
 
 .tracker-add-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background-color: #61B89E;
-  color: white;
+  width: 36px;  
+  height: 36px; 
+  border-radius: 14px; 
+  border: 2px solid #EAECF0; 
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
 }
+
+.tracker-emoji {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-left: 0;  
+  border: 2px solid #EAECF0; /* Add outline with stroke color */
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  cursor: pointer;
+}
+
 
 .tracker-add-habit-btn {
   width: 100%;
@@ -474,7 +553,7 @@ p {
   width: 100%;
   max-width: 430px;
   /* iPhone 14 screen size */
-  padding: 20px 16px;
+  padding: 20px;
   box-sizing: border-box;
   background-color: #fff;
 }
@@ -484,6 +563,13 @@ p {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  position: fixed; 
+  top: 20px; 
+  left: 20px; 
+  right: 20px; 
+  background-color: white; 
+  z-index: 1000; 
+  padding: 10px; 
 }
 
 .title {
@@ -543,7 +629,7 @@ p {
 }
 
 .input-section {
-  padding-top: 5px;
+  padding-top: 20px;
   margin-bottom: 24px;
 }
 
@@ -601,6 +687,7 @@ label {
 
 .goal-frequency {
   display: flex;
+  padding-top: 0px;
   justify-content: space-between;
   font-size: 14px;
   color: gray;
@@ -632,6 +719,7 @@ label {
 }
 
 .toggle-switch input {
+  padding-top: 50px;
   display: none;
 }
 
