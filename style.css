@@ -691,6 +691,12 @@ label {
   color: #666;
 }
 
+.goal2-text {
+  font-size: 14px;
+  color: #000000;
+  margin-right: 50px;
+}
+
 .edit-button {
   background-color: #ffffff; /* Grey box */
   border: 1px solid #dedede;
@@ -699,7 +705,7 @@ label {
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 250px; /* Pushes the button to the right */
+  margin-left: 150px; /* Pushes the button to the right */
 }
 
 
@@ -732,19 +738,49 @@ label {
 
 .time-picker {
   display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #f5f5f5; /* Seamless grey background */
+  border-radius: 12px;
   font-family: 'Poppins', sans-serif;
-  align-items: center;
-  width: 100%; /* Make the time picker fill the width */
+}
+
+.time-input,
+.frequency-select {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f5f5f5; /* Match container background */
+  border: none; /* Remove borders to make seamless */
+  font-family: 'Poppins', sans-serif;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center text vertically */
 }
 
 .time-input {
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #f5f5f5;
-  background-color: #f5f5f5;
-  border-radius: 12px;
+  width: 50%; /* Adjust as needed */
+}
+
+.frequency-select {
+  width: 50%; /* Adjust as needed */
+}
+
+.icon {
+  width: 24px; /* Adjust the size of the icons as needed */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align with text */
+  border: none; /* Remove any border that might appear */
+  background: none; /* Remove any background that might appear */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Ensure no margin */
+}
+
+.clock-icon {
+  margin-right: 4px; /* Space between clock icon and input */
+}
+
+.bell-icon {
+  margin-left: 4px; /* Space between bell icon and select */
 }
 
 
@@ -844,19 +880,6 @@ label {
 }
 
 .goal-frequency label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.time-picker {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.time-picker label {
   display: flex;
   align-items: center;
   gap: 5px;

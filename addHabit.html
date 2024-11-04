@@ -24,19 +24,17 @@
             <label for="habit-name">NAME</label>
             <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name" value="">
         </div>
-
         <div class="input-section" id="goal-section">
             <label for="goal">GOAL</label>
             <div class="goal-container">
                 <div class="goal-input-group">
                     <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
-                    <button class="edit-button">&#9998;</button>
+                    <span class="goal2-text">times</span> <!-- Added "times" here -->
+                    <button class="edit-button">
+                        <img src="img/edit.png" alt="Edit" class="edit-icon">
+                    </button>                    
                 </div>
-                <span class="goal-text">times or more per day</span>
-            </div>
-            <div class="goal-frequency">
-
-                </label>
+                <span class="goal-text">or more per day</span>
             </div>
         </div>
         
@@ -52,8 +50,16 @@
                     </label>
                 </div>
                 <div class="time-picker">
+                    <img src="img/Clock.png" alt="Clock Icon" class="icon clock-icon"> <!-- Clock icon on the left -->
                     <input type="time" class="time-input" value="00:00">
+                    <img src="img/Bell.png" alt="Bell Icon" class="icon bell-icon"> <!-- Bell icon -->
+                    <select class="frequency-select">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
                 </div>
+                
             </div>
             <button class="add-reminder-btn">Add Reminder</button>
         </div>
