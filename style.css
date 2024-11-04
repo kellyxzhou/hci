@@ -190,113 +190,83 @@ body {
   height: 24px;
   cursor: pointer;
 }
+.leaderboard {
+  font-family: 'Poppins', sans-serif;
+}
 
-/* Top three section */
 .top-three {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the first place */
   margin-bottom: 20px;
-  gap: 0px; /* Adjusts the space between the place elements */
 }
 
 .place {
   text-align: center;
   display: flex;
-  flex-direction: column; /* Allows stacking of the circle and text vertically */
-  align-items: center; /* Centers the circle horizontally */
+  flex-direction: column; /* Stacks circle and text vertically */
+  align-items: center; /* Centers circle horizontally */
+  margin: 0 10px; /* Margin between the places */
 }
 
 .circle {
   width: 60px;
   height: 60px;
-  border-radius: 100%;
-  background-color: #C4C4C4;
-  border: 3px solid #61B89E;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid #61B89E; /* Green outline */
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Aligns the content inside the circle to the bottom */
-  position: relative;
-  margin-bottom: 10px; /* Reduced margin for spacing between circle and text */
+  align-items: center;
+}
+
+.big-circle {
+  width: 70px; /* Slightly larger for first place */
+  height: 70px; /* Slightly larger for first place */
 }
 
 .place-circle {
-  position: absolute;
-  bottom: -10px; /* Adjust this value to position the circle if needed */
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #61B89E;
+  background-color: #61B89E; /* Green circle behind number */
   color: white;
-  font-size: 12px;
-  text-align: center;
-  line-height: 20px;
-}
-
-
-.user-icon, .icon {
-  margin-right: 25px; /* Creates larger gap */
-}
-
-.place-circle {
-  position: absolute;
-  bottom: -10px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #61B89E;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-  line-height: 20px;
-}
-
-/* Rest of leaderboard styling */
-.rest-of-leaderboard {
-  display: flex;
-  flex-direction: column;
-}
-
-.player-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border: 2px solid #ddd;
-  border-radius: 15px;
-  padding: 8px 20px; /* 5px for top and bottom, 20px for left and right */
-  margin-bottom: 10px;
-}
-
-/* Add more space between position number and circle icon */
-.position {
-  font-weight: bold;
-  font-size: 18px;
-  color: black;
-  margin-right: 15px;
-  /* Adjust this value for more/less space */
-}
-
-.icon {
-  font-size: 24px;
-  margin-right: 20px;
-  /* Adjust this value for more/less space */
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: white;
-  border: 2px solid #61B89E;
-}
-
-p {
-  flex-grow: 1;
-  margin: 0;
   font-size: 16px;
-  color: black;
+  text-align: center;
+  line-height: 40px; /* Vertically centers the number */
+  position: relative;
+  margin-top: -20px; /* Moves number circle up to overlap */
+}
+
+.friend-list {
+  display: flex;
+  flex-direction: column; /* Aligns friends in a column */
+  gap: 10px; /* Space between friends */
+}
+
+.friend {
+  display: flex;
+  align-items: center; /* Vertically centers content */
+  justify-content: space-between; /* Space between profile pic and points */
+  background-color: white; /* White background for each row */
+  border-radius: 12px; /* Rounded corners */
+  padding: 10px 15px; /* More padding */
+}
+
+.profile-pic {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Creates circular profile picture */
+  background-color: #C4C4C4; /* Grey circle for profile pic */
 }
 
 .points {
-  color: #4F4F4F;
-  font-weight: normal; /* Standard weight, except for the "You" row */
+  color: #666; /* Grey color for points */
+}
+
+/* Special styling for "You" */
+.friend.you {
+  background-color: #61B89E; /* Green background for "You" */
+  color: white; /* White text color */
 }
 
 .user-row {
