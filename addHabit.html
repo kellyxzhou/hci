@@ -28,43 +28,36 @@
         <div class="input-section" id="goal-section">
             <label for="goal">GOAL</label>
             <div class="goal-container">
-                <div>
+                <div class="goal-input-group">
                     <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
-                    <span>times or more per day</span>
                     <button class="edit-button">&#9998;</button>
                 </div>
-                <div class="goal-frequency">
-                    <label for="goal-daily-toggle">Set Goal for Daily?</label>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="goal-daily-toggle">
-                        <span class="slider"></span>
-                    </label>
-                </div>
+                <span class="goal-text">times or more per day</span>
+            </div>
+            <div class="goal-frequency">
+
+                </label>
             </div>
         </div>
+        
 
         <div class="input-section" id="reminder-section">
             <label>REMINDERS</label>
-            <div class="reminder-container">
-                <span>Remember to set off time</span>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-            <div class="time-picker">
-                <input type="time" class="time-input" value="00:00">
-            </div>
-            <div class="goal-frequency">
-                <label for="goal-daily-toggle">Set Reminder for Daily?</label>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="goal-daily-toggle">
-                    <span class="slider"></span>
-                </label>
+            <div class="reminder-box">
+                <div class="reminder-container">
+                    <span>Remember to set off time</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="time-picker">
+                    <input type="time" class="time-input" value="00:00">
+                </div>
             </div>
             <button class="add-reminder-btn">Add Reminder</button>
         </div>
-
+        
         <!-- Add Habit Button -->
         <a href="tracker.html" class="add-habit-btn">Add Habit</a>
     </div>
