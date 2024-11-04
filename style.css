@@ -196,16 +196,25 @@ body {
 
 .top-three {
   display: flex;
-  justify-content: center; /* Center the first place */
+  justify-content: center;
+  gap: 20px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .place {
   text-align: center;
   display: flex;
-  flex-direction: column; /* Stacks circle and text vertically */
-  align-items: center; /* Centers circle horizontally */
-  margin: 0 10px; /* Margin between the places */
+  flex-direction: column;
+  align-items: center;
+}
+
+.first {
+  margin-top: -10px; /* Slightly raises first place */
+}
+
+.second, .third {
+  margin-top: 20px; /* Lowers 2nd and 3rd places */
 }
 
 .circle {
@@ -213,65 +222,75 @@ body {
   height: 60px;
   border-radius: 50%;
   background-color: white;
-  border: 3px solid #61B89E; /* Green outline */
+  border: 3px solid #61B89E;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .big-circle {
-  width: 70px; /* Slightly larger for first place */
-  height: 70px; /* Slightly larger for first place */
+  width: 70px;
+  height: 70px;
 }
 
 .place-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #61B89E;
+  color: black; /* Black text for numbers */
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+  margin-top: -20px;
+}
+
+/* Wrapper for each friend row */
+.friend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps points aligned to the right */
+  padding: 10px 16px; /* Adds padding with rounded corners */
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Rank number, icon, and name grouped together */
+.friend-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adjusts spacing between number, icon, and name */
+}
+
+/* Style for rank number */
+.rank-number {
+  font-weight: bold;
+  color: #666;
+  margin-right: 4px; /* Reduces gap between rank number and profile icon */
+}
+
+/* Profile icon styling */
+.profile-pic {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #61B89E; /* Green circle behind number */
-  color: white;
+  background-color: #C4C4C4;
+  margin-right: 4px; /* Adjust as needed */
+}
+
+/* Friend name */
+.friend-name {
   font-size: 16px;
-  text-align: center;
-  line-height: 40px; /* Vertically centers the number */
-  position: relative;
-  margin-top: -20px; /* Moves number circle up to overlap */
+  color: #333;
 }
 
-.friend-list {
-  display: flex;
-  flex-direction: column; /* Aligns friends in a column */
-  gap: 10px; /* Space between friends */
-}
-
-.friend {
-  display: flex;
-  align-items: center; /* Vertically centers content */
-  justify-content: space-between; /* Space between profile pic and points */
-  background-color: white; /* White background for each row */
-  border-radius: 12px; /* Rounded corners */
-  padding: 10px 15px; /* More padding */
-}
-
-.profile-pic {
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  border-radius: 50%; /* Creates circular profile picture */
-  background-color: #C4C4C4; /* Grey circle for profile pic */
-}
-
+/* Points aligned to the far right */
 .points {
-  color: #666; /* Grey color for points */
-}
-
-/* Special styling for "You" */
-.friend.you {
-  background-color: #61B89E; /* Green background for "You" */
-  color: white; /* White text color */
-}
-
-.user-row {
-  background-color: #61B89E; /* Green background for "You" row */
-  color: white; /* White text for contrast */
+  font-weight: bold;
+  color: #666;
+  white-space: nowrap;
 }
 
 
