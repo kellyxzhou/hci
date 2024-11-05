@@ -1,18 +1,33 @@
+/* Reset body margin and padding */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: white;
+  background-color: black; /* Black borders outside the phone viewport */
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px; /* Adjust this value based on the header's height */
+  height: 100vh; /* Full viewport height for centering */
 }
+
+/* iPhone 14 Pro Max dimensions */
+.container {
+  width: 430px;
+  height: 932px;
+  background-color: white; /* Phone screen background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
 
 .homeContainer {
   width: 100%;
-  max-width: 430px;
-  padding: 20px;
+  max-width: 430px; /* iPhone 14 max width */
+  padding: 100px 20px 20px; /* Increased top padding */
   box-sizing: border-box;
 }
 
@@ -166,17 +181,25 @@ body {
 
 .leaderboard-container {
   padding-top: 90px;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
 }
 
-/* Title and settings icon */
 .header {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 430px;
+  padding-top: 20px;
+  padding-bottom: 0px;
   align-items: center;
-  margin-bottom: 20px;
+  background: white;
+  justify-content: space-around;
+  margin: 0 auto;
+  position: sticky;
+  top: 0; /* Ensure it's flush to the top */
+  z-index: 1000;
 }
+
 
 .title {
   font-size: 24px;
@@ -192,6 +215,7 @@ body {
 }
 .leaderboard {
   font-family: 'Poppins', sans-serif;
+  padding-top: 20px;
 }
 
 .top-three {
@@ -296,18 +320,13 @@ body {
 
 .tracker-page-container {
   width: 100%;
-  max-width: 430px;
-  /* iPhone 14 max width */
-  padding: 20px;
+  max-width: 430px; /* iPhone 14 max width */
+  padding: 100px 20px 20px; /* Increased top padding */
   box-sizing: border-box;
+
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
+
 
 .title {
   font-size: 28px;
@@ -542,26 +561,21 @@ body {
 
 .add-habit-container {
   width: 100%;
-  max-width: 430px;
-  /* iPhone 14 screen size */
-  padding: 20px;
+  max-width: 430px; /* iPhone 14 max width */
+  padding: 100px 20px 20px; /* Increased top padding */
   box-sizing: border-box;
   background-color: #fff;
 }
 
 .header {
   display: flex;
-  align-items: center;
+  padding-top: 40px;
   justify-content: space-between;
-  margin-bottom: 20px;
-  position: fixed; 
-  top: 20px; 
-  left: 20px; 
-  right: 20px; 
+  align-items: center;
   background-color: white; 
   z-index: 1000; 
-  padding: 10px; 
 }
+
 
 .title {
   font-size: 22px;
@@ -582,12 +596,19 @@ body {
 
 .date-selection {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  -ms-overflow-style: none;  /* For Internet Explorer 10+ */
+  scrollbar-width: none; /* For Firefox */
   white-space: nowrap;
   padding: 10px;
   border-radius: 8px;
   background-color: #ffffff;
 }
+
+.date-selection::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar for Webkit-based browsers (Chrome, Safari) */
+}
+
 
 .date-item {
   display: inline-block;
