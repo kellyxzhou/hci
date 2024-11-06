@@ -27,7 +27,7 @@ body {
 .homeContainer {
   width: 100%;
   max-width: 430px; /* iPhone 14 max width */
-  padding: 100px 20px 20px; /* Increased top padding */
+  padding: 0px 20px 20px; /* Increased top padding */
   box-sizing: border-box;
 }
 
@@ -187,9 +187,7 @@ body {
 
 .header {
   display: flex;
-  width: 100%;
   max-width: 430px;
-  padding-top: 20px;
   padding-bottom: 0px;
   align-items: center;
   background: white;
@@ -569,7 +567,6 @@ body {
 
 .header {
   display: flex;
-  padding-top: 40px;
   justify-content: space-between;
   align-items: center;
   background-color: white; 
