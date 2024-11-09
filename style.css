@@ -1,38 +1,44 @@
 /* Reset body margin and padding */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black; /* Black borders outside the phone viewport */
+  background-color: black;
+  /* Black borders outside the phone viewport */
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height for centering */
+  height: 100vh;
+  /* Full viewport height for centering */
 }
 
 /* iPhone 14 Pro Max dimensions */
 .container {
   width: 430px;
   height: 932px;
-  background-color: white; /* Phone screen background color */
+  background-color: white;
+  /* Phone screen background color */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  overflow-y: auto; /* Allows scrolling if content overflows */
+  overflow-y: auto;
+  /* Allows scrolling if content overflows */
 }
 
 
 .homeContainer {
   width: 100%;
-  max-width: 430px; /* iPhone 14 max width */
-  padding: 0px 20px 20px; /* Increased top padding */
+  max-width: 430px;
+  /* iPhone 14 max width */
+  padding: 0px 20px 20px;
+  /* Increased top padding */
   box-sizing: border-box;
 }
 
 .welcome-section {
-  padding-top: 0; 
+  padding-top: 0;
 }
 
 .welcome-section h2 {
@@ -73,7 +79,8 @@ body {
   border-radius: 16px;
   padding: 15px;
   margin-bottom: 25px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Added box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* Added box shadow */
 }
 
 
@@ -194,7 +201,8 @@ body {
   justify-content: space-around;
   margin: 0 auto;
   position: sticky;
-  top: 0; /* Ensure it's flush to the top */
+  top: 0;
+  /* Ensure it's flush to the top */
   z-index: 1000;
 }
 
@@ -211,6 +219,7 @@ body {
   height: 24px;
   cursor: pointer;
 }
+
 .leaderboard {
   font-family: 'Poppins', sans-serif;
   padding-top: 20px;
@@ -232,11 +241,14 @@ body {
 }
 
 .first {
-  margin-top: -10px; /* Slightly raises first place */
+  margin-top: -10px;
+  /* Slightly raises first place */
 }
 
-.second, .third {
-  margin-top: 20px; /* Lowers 2nd and 3rd places */
+.second,
+.third {
+  margin-top: 20px;
+  /* Lowers 2nd and 3rd places */
 }
 
 .circle {
@@ -260,7 +272,8 @@ body {
   height: 30px;
   border-radius: 50%;
   background-color: #61B89E;
-  color: black; /* Black text for numbers */
+  color: black;
+  /* Black text for numbers */
   font-size: 14px;
   text-align: center;
   line-height: 30px;
@@ -272,8 +285,10 @@ body {
 .friend-row {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Keeps points aligned to the right */
-  padding: 10px 16px; /* Adds padding with rounded corners */
+  justify-content: space-between;
+  /* Keeps points aligned to the right */
+  padding: 10px 16px;
+  /* Adds padding with rounded corners */
   border-radius: 8px;
   background-color: #fff;
   margin-bottom: 8px;
@@ -283,14 +298,16 @@ body {
 .friend-info {
   display: flex;
   align-items: center;
-  gap: 8px; /* Adjusts spacing between number, icon, and name */
+  gap: 8px;
+  /* Adjusts spacing between number, icon, and name */
 }
 
 /* Style for rank number */
 .rank-number {
   font-weight: bold;
   color: #666;
-  margin-right: 4px; /* Reduces gap between rank number and profile icon */
+  margin-right: 4px;
+  /* Reduces gap between rank number and profile icon */
 }
 
 /* Profile icon styling */
@@ -299,7 +316,8 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: #C4C4C4;
-  margin-right: 4px; /* Adjust as needed */
+  margin-right: 4px;
+  /* Adjust as needed */
 }
 
 /* Friend name */
@@ -318,8 +336,10 @@ body {
 
 .tracker-page-container {
   width: 100%;
-  max-width: 430px; /* iPhone 14 max width */
-  padding: 100px 20px 20px; /* Increased top padding */
+  max-width: 430px;
+  /* iPhone 14 max width */
+  padding: 100px 20px 20px;
+  /* Increased top padding */
   box-sizing: border-box;
 
 }
@@ -372,56 +392,68 @@ body {
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .tracker-challenge-info {
   display: flex;
-  align-items: center; /* Aligns the emoji/progress ring and text vertically */
+  align-items: center;
+  /* Aligns the emoji/progress ring and text vertically */
 }
 
 .progress-ring {
   position: relative;
-  margin-right: 10px; /* Space between the progress ring and text */
+  margin-right: 10px;
+  /* Space between the progress ring and text */
 }
 
 .progress-circle {
-  transform: rotate(-90deg); /* Rotate to start from the top */
+  transform: rotate(-90deg);
+  /* Rotate to start from the top */
 }
 
 .progress-background {
   fill: none;
-  stroke: #e6e6e6; /* Background color of the ring */
-  stroke-width: 4; /* Adjust the thickness */
+  stroke: #e6e6e6;
+  /* Background color of the ring */
+  stroke-width: 4;
+  /* Adjust the thickness */
 }
 
 .progress-value {
   fill: none;
-  stroke: #61B89E; /* Color of the progress ring */
-  stroke-width: 4; /* Adjust the thickness */
-  transition: stroke-dashoffset 0.5s; /* Smooth transition */
+  stroke: #61B89E;
+  /* Color of the progress ring */
+  stroke-width: 4;
+  /* Adjust the thickness */
+  transition: stroke-dashoffset 0.5s;
+  /* Smooth transition */
 }
 
 /* Set the stroke-dashoffset based on progress */
 .progress-value {
-  stroke-dashoffset: 56.55; /* Example value for 50% completion */
+  stroke-dashoffset: 56.55;
+  /* Example value for 50% completion */
 }
 
 .emoji {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the emoji */
+  transform: translate(-50%, -50%);
+  /* Center the emoji */
 }
 
 .info-text {
   display: flex;
-  flex-direction: column; /* Stack the text vertically */
+  flex-direction: column;
+  /* Stack the text vertically */
 }
 
 .tracker-challenge-info h3 {
   margin: 0;
   font-size: 16px;
   font-weight: 500;
-  text-align: left; 
-  padding-left: 0;  
+  text-align: left;
+  padding-left: 0;
 }
 
 .tracker-challenge-info p {
@@ -451,10 +483,10 @@ body {
 }
 
 .tracker-add-btn {
-  width: 36px;  
-  height: 36px; 
-  border-radius: 14px; 
-  border: 2px solid #EAECF0; 
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  border: 2px solid #EAECF0;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   font-size: 20px;
@@ -465,8 +497,9 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  margin-left: 0;  
-  border: 2px solid #EAECF0; /* Add outline with stroke color */
+  margin-left: 0;
+  border: 2px solid #EAECF0;
+  /* Add outline with stroke color */
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   font-size: 20px;
@@ -559,8 +592,10 @@ body {
 
 .add-habit-container {
   width: 100%;
-  max-width: 430px; /* iPhone 14 max width */
-  padding: 100px 20px 20px; /* Increased top padding */
+  max-width: 430px;
+  /* iPhone 14 max width */
+  padding: 100px 20px 20px;
+  /* Increased top padding */
   box-sizing: border-box;
   background-color: #fff;
 }
@@ -569,8 +604,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white; 
-  z-index: 1000; 
+  background-color: white;
+  z-index: 1000;
 }
 
 
@@ -593,9 +628,12 @@ body {
 
 .date-selection {
   display: flex;
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  -ms-overflow-style: none;  /* For Internet Explorer 10+ */
-  scrollbar-width: none; /* For Firefox */
+  overflow-x: scroll;
+  /* Enable horizontal scrolling */
+  -ms-overflow-style: none;
+  /* For Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* For Firefox */
   white-space: nowrap;
   padding: 10px;
   border-radius: 8px;
@@ -603,7 +641,8 @@ body {
 }
 
 .date-selection::-webkit-scrollbar {
-  display: none; /* Hide the scrollbar for Webkit-based browsers (Chrome, Safari) */
+  display: none;
+  /* Hide the scrollbar for Webkit-based browsers (Chrome, Safari) */
 }
 
 
@@ -681,7 +720,8 @@ label {
 .goal-input-group {
   display: flex;
   align-items: center;
-  gap: 8px; /* Adds space between the input and edit button */
+  gap: 8px;
+  /* Adds space between the input and edit button */
 }
 
 .goal-input {
@@ -705,14 +745,16 @@ label {
 }
 
 .edit-button {
-  background-color: #ffffff; /* Grey box */
+  background-color: #ffffff;
+  /* Grey box */
   border: 1px solid #dedede;
   padding: 6px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 150px; /* Pushes the button to the right */
+  margin-left: 150px;
+  /* Pushes the button to the right */
 }
 
 
@@ -727,8 +769,10 @@ label {
 
 .reminder-box {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  gap: 12px; /* Space between reminder container and time picker */
+  flex-direction: column;
+  /* Stack items vertically */
+  gap: 12px;
+  /* Space between reminder container and time picker */
   padding: 14px;
   border: 1px solid #d8d8d8;
   border-radius: 12px;
@@ -745,10 +789,12 @@ label {
 
 .time-picker {
   display: flex;
-  align-items: center; /* Aligns items vertically in the center */
+  align-items: center;
+  /* Aligns items vertically in the center */
   padding-right: 10px;
   padding-left: 10px;
-  background-color: #f5f5f5; /* Seamless grey background */
+  background-color: #f5f5f5;
+  /* Seamless grey background */
   border-radius: 12px;
   font-family: 'Poppins', sans-serif;
 }
@@ -757,37 +803,52 @@ label {
 .frequency-select {
   padding: 10px;
   font-size: 16px;
-  background-color: #f5f5f5; /* Match container background */
-  border: none; /* Remove borders to make seamless */
+  background-color: #f5f5f5;
+  /* Match container background */
+  border: none;
+  /* Remove borders to make seamless */
   font-family: 'Poppins', sans-serif;
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center text vertically */
+  display: flex;
+  /* Use flexbox for alignment */
+  align-items: center;
+  /* Center text vertically */
 }
 
 .time-input {
-  width: 50%; /* Adjust as needed */
+  width: 50%;
+  /* Adjust as needed */
 }
 
 .frequency-select {
-  width: 50%; /* Adjust as needed */
+  width: 50%;
+  /* Adjust as needed */
 }
 
 .icon {
-  width: 24px; /* Adjust the size of the icons as needed */
-  height: auto; /* Maintain aspect ratio */
-  vertical-align: middle; /* Align with text */
-  border: none; /* Remove any border that might appear */
-  background: none; /* Remove any background that might appear */
-  padding: 0; /* Remove any padding */
-  margin: 0; /* Ensure no margin */
+  width: 24px;
+  /* Adjust the size of the icons as needed */
+  height: auto;
+  /* Maintain aspect ratio */
+  vertical-align: middle;
+  /* Align with text */
+  border: none;
+  /* Remove any border that might appear */
+  background: none;
+  /* Remove any background that might appear */
+  padding: 0;
+  /* Remove any padding */
+  margin: 0;
+  /* Ensure no margin */
 }
 
 .clock-icon {
-  margin-right: 4px; /* Space between clock icon and input */
+  margin-right: 4px;
+  /* Space between clock icon and input */
 }
 
 .bell-icon {
-  margin-left: 4px; /* Space between bell icon and select */
+  margin-left: 4px;
+  /* Space between bell icon and select */
 }
 
 
@@ -869,6 +930,21 @@ label {
   transition: background-color 0.2s, transform 0.1s;
 }
 
+.add-habit-tracker {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  padding: 12px;
+  background-color: #61B89E;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
 .add-habit-btn:active {
   background-color: #52a188;
   transform: scale(0.98);
@@ -890,4 +966,121 @@ label {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+
+.profile-container {
+  width: 100%;
+  max-width: 430px;
+  padding: 100px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.profile-picture-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.change-pic-img {
+  width: 20px;
+  /* Adjust size */
+  height: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.change-pic-img:hover {
+  opacity: 0.7;
+  /* Add hover effect */
+}
+
+.user-info {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  margin-bottom: 10px;
+}
+
+.info-item label {
+  font-size: 16px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-item input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.info-item input:disabled {
+  background-color: #e0e0e0;
+}
+
+.edit-btn,
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #61B89E;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.save-btn {
+  display: none;
+}
+
+.edit-btn:hover,
+.save-btn:hover {
+  background-color: #52a188;
+}
+
+.save-btn:active,
+.edit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.back-button {
+  font-size: 18px;
+  color: #61B89E;
+  text-decoration: none;
 }

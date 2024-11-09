@@ -3,33 +3,73 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    profile
+    <div class="container">
+        <div class="profile-container">
+            <!-- Header Section -->
 
-    <div class="tracker-bottom-nav">
-        <a href="home.html" class="tracker-nav-item">
-            <img src="img/home.svg" alt="Home" class="nav-icon" />
-            Home
-        </a>
-        <a href="tracker.html" class="tracker-nav-item">
-            <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-            Tracker
-        </a>
-        <a href="Leaderboard.html" class="tracker-nav-item">
-            <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
-            Ranking
-        </a>
-        <a href="profile.html" class="tracker-nav-item">
-            <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-            Profile
-        </a>
+            <div class="header">
+                <h1 class="title">Profile</h1>
+                <img src="img/settings.png" alt="Settings" class="settings-icon">
+            </div>
+
+            <div class="profile-picture-container">
+                <img src="img/user2.png" alt="Profile Picture" id="profile-pic" />
+                <input type="file" id="profile-pic-input" accept="image/*" style="display: none;" />
+
+                <img src="img/Edit.png" alt="Edit Picture" class="change-pic-img"
+                    onclick="document.getElementById('profile-pic-input').click();" />
+            </div>
+            <!-- User Info Section -->
+            <div class="user-info">
+                <div class="info-item">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" value="John Doe" disabled />
+                </div>
+                <div class="info-item">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" value="john.doe@example.com" disabled />
+                </div>
+                <div class="info-item">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" value="123-456-7890" disabled />
+                </div>
+            </div>
+
+            <!-- Edit Profile Button -->
+            <button class="edit-btn" id="edit-btn" onclick="toggleEdit()">Edit Profile</button>
+
+            <!-- Save Profile Button -->
+            <button class="save-btn" id="save-btn" onclick="saveProfile()" style="display:none;">Save Profile</button>
+        </div>
+
+        <div class="tracker-bottom-nav">
+            <a href="home.html" class="tracker-nav-item">
+                <img src="img/home.svg" alt="Home" class="nav-icon" />
+                Home
+            </a>
+            <a href="tracker.html" class="tracker-nav-item">
+                <img src="img/add.svg" alt="Tracker" class="nav-icon" />
+                Tracker
+            </a>
+            <a href="Leaderboard.html" class="tracker-nav-item">
+                <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
+                Ranking
+            </a>
+            <a href="profile.html" class="tracker-nav-item">
+                <img src="img/profile.svg" alt="Profile" class="nav-icon" />
+                Profile
+            </a>
+        </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

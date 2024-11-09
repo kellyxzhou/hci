@@ -11,65 +11,168 @@
 
 <body>
     <div class="container">
-    <div class="add-habit-container">
-        <!-- Header -->
-        <div class="header">
-            <a href="tracker.html" class="back-button">&larr;</a>
-            <h1 class="title">Add New Habit</h1>
-            <img src="img/settings.png" alt="Settings" class="settings-icon">
-        </div>
-
-        <div class="date-selection" id="dateSelection"></div>
-
-        <div class="input-section">
-            <label for="habit-name">NAME</label>
-            <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name" value="">
-        </div>
-        <div class="input-section" id="goal-section">
-            <label for="goal">GOAL</label>
-            <div class="goal-container">
-                <div class="goal-input-group">
-                    <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
-                    <span class="goal2-text">times</span> <!-- Added "times" here -->
-                    <button class="edit-button">
-                        <img src="img/edit.png" alt="Edit" class="edit-icon">
-                    </button>                    
-                </div>
-                <span class="goal-text">or more per day</span>
+        <div class="add-habit-container">
+            <!-- Header -->
+            <div class="header">
+                <a href="tracker.html" class="back-button">&larr;</a>
+                <h1 class="title">Add New Habit</h1>
+                <img src="img/settings.png" alt="Settings" class="settings-icon">
             </div>
-        </div>
-        
 
-        <div class="input-section" id="reminder-section">
-            <label>REMINDERS</label>
-            <div class="reminder-box">
-                <div class="reminder-container">
-                    <span>Remember to set off time</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="time-picker">
-                    <img src="img/Clock.png" alt="Clock Icon" class="icon clock-icon"> <!-- Clock icon on the left -->
-                    <input type="time" class="time-input" value="00:00">
-                    <img src="img/Bell.png" alt="Bell Icon" class="icon bell-icon"> <!-- Bell icon -->
-                    <select class="frequency-select">
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
-                </div>
-                
+            <div class="date-selection" id="dateSelection"></div>
+
+            <div class="input-section">
+                <label for="habit-name">NAME</label>
+                <input type="text" id="habit-name" class="habit-input" placeholder="Enter habit name" value="">
             </div>
-            <button class="add-reminder-btn">Add Reminder</button>
+            <div class="input-section" id="goal-section">
+                <label for="goal">GOAL</label>
+                <div class="goal-container">
+                    <div class="goal-input-group">
+                        <input type="number" id="goal" class="goal-input" placeholder="0" value="0">
+                        <span class="goal2-text">times</span> <!-- Added "times" here -->
+                        <button class="edit-button">
+                            <img src="img/edit.png" alt="Edit" class="edit-icon">
+                        </button>
+                    </div>
+                    <span class="goal-text">or more per day</span>
+                </div>
+            </div>
+
+
+            <div class="input-section" id="reminder-section">
+                <label>REMINDERS</label>
+                <div class="reminder-box">
+                    <div class="reminder-container">
+                        <span>Remember to set off time</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="time-picker">
+                        <img src="img/Clock.png" alt="Clock Icon" class="icon clock-icon">
+                        <!-- Clock icon on the left -->
+                        <input type="time" class="time-input" value="00:00">
+                        <img src="img/Bell.png" alt="Bell Icon" class="icon bell-icon"> <!-- Bell icon -->
+                        <select class="frequency-select">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+
+                </div>
+                <button class="add-reminder-btn">Add Reminder</button>
+            </div>
+
+            <!-- Add Habit Button -->
+            <a href="tracker.html" class="add-habit-btn" id="add-habit-btn">Add Habit</a>
+
+
         </div>
-        
-        <!-- Add Habit Button -->
-        <a href="tracker.html" class="add-habit-btn">Add Habit</a>
-    </div>
-</div>
-    <script src="script.js"></script>
+        <script>
+            document.getElementById("add-habit-btn").addEventListener("click", function () {
+                // Get the habit name and goal from input fields
+                const habitName = document.getElementById("habit-name").value;
+                const goal = document.getElementById("goal").value;
+
+                // Store the habit in localStorage
+                localStorage.setItem("newHabit", JSON.stringify({
+                    name: habitName,
+                    goal: goal,
+                    emoji: "🕒" // Example emoji, you can change this or add a selector
+                }));
+            });
+
+            function selectDate(element) {
+                // Remove 'selected' class from all date items
+                const items = document.querySelectorAll('.date-item');
+                items.forEach(item => item.classList.remove('selected'));
+
+                // Add 'selected' class to the clicked item
+                element.classList.add('selected');
+            }
+
+            function generateCalendar() {
+                const dateSelection = document.getElementById('dateSelection');
+                const currentDate = new Date();
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth(); // 0 = January, 1 = February, etc.
+
+                // Get the first day of the month and the number of days in the month
+                const firstDay = new Date(year, month, 1);
+                const daysInMonth = new Date(year, month + 1, 0).getDate(); // Last day of the month
+
+                // Generate date items for each day of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateItem = document.createElement('div');
+                    dateItem.className = 'date-item';
+                    dateItem.innerHTML = `${day}<br><span>${firstDay.toLocaleString('default', { weekday: 'short' })}</span>`;
+                    dateItem.onclick = function () { selectDate(this); };
+
+                    // Move to the next day
+                    firstDay.setDate(firstDay.getDate() + 1);
+                    dateSelection.appendChild(dateItem);
+                }
+            }
+
+            // Call the function to generate the calendar on page load
+            window.onload = generateCalendar;
+
+            let daysLeft = 5;
+            let hoursLeft = 13;
+
+            // Function to update the countdown display
+            function updateCountdown() {
+                const countdownElement = document.getElementById('countdown');
+
+                // Decrease hours
+                if (hoursLeft > 0) {
+                    hoursLeft -= 1;
+                } else {
+                    // Decrease days and reset hours to 23 if days are left
+                    if (daysLeft > 0) {
+                        daysLeft -= 1;
+                        hoursLeft = 23;
+                    }
+                }
+
+                // Update the countdown text
+                countdownElement.textContent = `${daysLeft} days ${hoursLeft} hours left`;
+            }
+
+            // Update the countdown every hour (3600000 ms)
+            setInterval(updateCountdown, 3600000);
+
+            // Initial update
+            updateCountdown();
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const goalDailyToggle = document.getElementById("goal-daily-toggle");
+                const reminderDailyToggle = document.getElementById("reminder-daily-toggle");
+
+                const goalInputSection = document.getElementById("goal-section").querySelector(".goal-container");
+                const reminderTimePicker = document.getElementById("reminder-section").querySelector(".time-picker");
+
+                goalDailyToggle.addEventListener("change", function () {
+                    if (goalDailyToggle.checked) {
+                        goalInputSection.style.display = "none";
+                    } else {
+                        goalInputSection.style.display = "flex";
+                    }
+                });
+
+                reminderDailyToggle.addEventListener("change", function () {
+                    if (reminderDailyToggle.checked) {
+                        reminderTimePicker.style.display = "none";
+                    } else {
+                        reminderTimePicker.style.display = "flex";
+                    }
+                });
+            });
+        </script>
+
 </body>
 
 </html>

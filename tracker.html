@@ -12,68 +12,74 @@
 
 <body>
     <div class="container">
-    <div class="tracker-page-container">
-        <!-- Header -->
-        <div class="header">
-            <h1 class="title">Tracker</h1>
-            <img src="img/settings.png" alt="Settings" class="settings-icon">
-        </div>
+        <div class="tracker-page-container">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="title">Tracker</h1>
+                <img src="img/settings.png" alt="Settings" class="settings-icon">
+            </div>
 
-        <!-- Challenges Section -->
-        <div class="tracker-section">
-            <div class="section-header">
-                <h2 class="section-title">Current Challenges</h2>
-                <a href="#" class="view-all">VIEW ALL</a>
-            </div>
-            <div class="tracker-challenge-card">
-                <div class="tracker-challenge-info">
-                    <div class="progress-ring">
-                        <svg class="progress-circle" width="40" height="40">
-                            <circle class="progress-background" cx="20" cy="20" r="18"></circle>
-                            <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
-                        </svg>
-                        <span class="emoji">🕒</span>
-                    </div>
-                    <div class="info-text">
-                        <h3>Carpool to work</h3>
-                        <p>5 days 13 hours left</p>
-                    </div>
+            <div class="tracker-section" id="current-challenges">
+                <div class="section-header">
+                    <h2 class="section-title">Current Challenges</h2>
+                    <a href="#" class="view-all">VIEW ALL</a>
                 </div>
-                <button class="tracker-add-btn" onclick="window.location.href='Carpool.html'">
-                    <img src="img/edit.png" alt="Edit" class="edit-icon">    
-                </button>
-            </div>
-        </div>
-
-        <!-- Current Challenges Section -->
-        <div class="tracker-section">
-            <div class="section-header">
-                <h2 class="section-title">New Challenges</h2>
-                <a href="#" class="view-all">VIEW ALL</a>
-            </div>
-            <div class="tracker-challenge-card">
-                <div class="tracker-challenge-info">
-                    <div class="progress-ring">
-                        <svg class="progress-circle" width="40" height="40">
-                            <circle class="progress-background" cx="20" cy="20" r="18"></circle>
-                            <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
-                        </svg>
-                        <span class="emoji">💧</span>
-                    </div>
-                    <div class="info-text">
-                        <h3>Shorter showers</h3>
-                        <p>500/2000 ML</p>
-                    </div>
-                </div>
-                <button class="tracker-add-btn" onclick="window.location.href='Showers.html'">+</button>
-            </div>
 
                 <div class="tracker-challenge-card">
                     <div class="tracker-challenge-info">
                         <div class="progress-ring">
                             <svg class="progress-circle" width="40" height="40">
                                 <circle class="progress-background" cx="20" cy="20" r="18"></circle>
-                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1"
+                                    stroke-dashoffset="56.55"></circle>
+                            </svg>
+                            <span class="emoji">🕒</span>
+                        </div>
+                        <div class="info-text">
+                            <h3>Carpool to work</h3>
+                            <p>5 days 13 hours left</p>
+                        </div>
+                    </div>
+                    <button class="tracker-add-btn" onclick="window.location.href='Carpool.html'">
+                        <img src="img/edit.png" alt="Edit" class="edit-icon">
+                    </button>
+                </div>
+
+                <!-- Habit cards will be dynamically inserted here -->
+            </div>
+
+
+
+            <div class="tracker-section">
+                <div class="section-header">
+                    <h2 class="section-title">New Challenges</h2>
+                    <a href="#" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <div class="progress-ring">
+                            <svg class="progress-circle" width="40" height="40">
+                                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1"
+                                    stroke-dashoffset="56.55"></circle>
+                            </svg>
+                            <span class="emoji">💧</span>
+                        </div>
+                        <div class="info-text">
+                            <h3>Shorter showers</h3>
+                            <p>0/2000 ML</p>
+                        </div>
+                    </div>
+                    <button class="tracker-add-btn" onclick="window.location.href='Showers.html'">+</button>
+                </div>
+
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <div class="progress-ring">
+                            <svg class="progress-circle" width="40" height="40">
+                                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1"
+                                    stroke-dashoffset="56.55"></circle>
                             </svg>
                             <span class="emoji">🚶‍♂️</span>
                         </div>
@@ -84,64 +90,146 @@
                     </div>
                     <button class="tracker-add-btn" onclick="window.location.href='Walk.html'">+</button>
                 </div>
-<div class="tracker-challenge-card">
-    <div class="tracker-challenge-info">
-        <div class="progress-ring">
-            <svg class="progress-circle" width="40" height="40">
-                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
-                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
-            </svg>
-            <span class="emoji">🌿</span>
-        </div>
-        <div class="info-text">
-            <h3>Water Plants</h3>
-            <p>0/1 TIMES</p>
-        </div>
-    </div>
-    <button class="tracker-add-btn" onclick="window.location.href='Plants.html'">+</button>
-</div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <div class="progress-ring">
+                            <svg class="progress-circle" width="40" height="40">
+                                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1"
+                                    stroke-dashoffset="56.55"></circle>
+                            </svg>
+                            <span class="emoji">🌿</span>
+                        </div>
+                        <div class="info-text">
+                            <h3>Water Plants</h3>
+                            <p>0/1 TIMES</p>
+                        </div>
+                    </div>
+                    <button class="tracker-add-btn" onclick="window.location.href='Plants.html'">+</button>
+                </div>
 
-<div class="tracker-challenge-card">
-    <div class="tracker-challenge-info">
-        <div class="progress-ring">
-            <svg class="progress-circle" width="40" height="40">
-                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
-                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.55"></circle>
-            </svg>
-            <span class="emoji">‍🧘🏻‍♂️‍</span>
-        </div>
-        <div class="info-text">
-            <h3>Less electricity</h3>
-            <p>0/1 TIMES</p>
-        </div>
-    </div>
-    <button class="tracker-add-btn" onclick="window.location.href='Electricity.html'">+</button>
-</div>
+                <div class="tracker-challenge-card">
+                    <div class="tracker-challenge-info">
+                        <div class="progress-ring">
+                            <svg class="progress-circle" width="40" height="40">
+                                <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+                                <circle class="progress-value" cx="20" cy="20" r="18" stroke-dasharray="113.1"
+                                    stroke-dashoffset="56.55"></circle>
+                            </svg>
+                            <span class="emoji">‍🧘🏻‍♂️‍</span>
+                        </div>
+                        <div class="info-text">
+                            <h3>Less electricity</h3>
+                            <p>0/1 TIMES</p>
+                        </div>
+                    </div>
+                    <button class="tracker-add-btn" onclick="window.location.href='Electricity.html'">+</button>
+                </div>
 
-            <!-- Add Habit Link -->
-            <a href="addHabit.html" class="add-habit-btn">Add Habit</a>
-        </div>
+                <!-- Add Habit Link -->
+                <a href="addHabit.html" class="add-habit-tracker">Add Habit</a>
+            </div>
 
-        <div class="tracker-bottom-nav">
-            <a href="home.html" class="tracker-nav-item">
-                <img src="img/home.svg" alt="Home" class="nav-icon" />
-                Home
-            </a>
-            <a href="tracker.html" class="tracker-nav-item">
-                <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-                Tracker
-            </a>
-            <a href="Leaderboard.html" class="tracker-nav-item">
-                <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
-                Ranking
-            </a>
-            <a href="profile.html" class="tracker-nav-item">
-                <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-                Profile
-            </a>
+            <div class="tracker-bottom-nav">
+                <a href="home.html" class="tracker-nav-item">
+                    <img src="img/home.svg" alt="Home" class="nav-icon" />
+                    Home
+                </a>
+                <a href="tracker.html" class="tracker-nav-item">
+                    <img src="img/add.svg" alt="Tracker" class="nav-icon" />
+                    Tracker
+                </a>
+                <a href="Leaderboard.html" class="tracker-nav-item">
+                    <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
+                    Ranking
+                </a>
+                <a href="profile.html" class="tracker-nav-item">
+                    <img src="img/profile.svg" alt="Profile" class="nav-icon" />
+                    Profile
+                </a>
+            </div>
         </div>
-</div>
-        <script src="tracker.js"></script>
+        <script>
+            // Dynamically add a new habit card in tracker.html
+            document.addEventListener("DOMContentLoaded", function () {
+                const newHabit = JSON.parse(localStorage.getItem("newHabit"));
+                if (newHabit) {
+                    // Create new habit card
+                    const challengeCard = document.createElement("div");
+                    challengeCard.classList.add("tracker-challenge-card");
+
+                    const challengeInfo = document.createElement("div");
+                    challengeInfo.classList.add("tracker-challenge-info");
+
+                    // Create the progress ring
+                    const progressRing = document.createElement("div");
+                    progressRing.classList.add("progress-ring");
+                    const progressCircle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    progressCircle.setAttribute("class", "progress-circle");
+                    progressCircle.setAttribute("width", "40");
+                    progressCircle.setAttribute("height", "40");
+
+                    const progressBackground = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    progressBackground.setAttribute("class", "progress-background");
+                    progressBackground.setAttribute("cx", "20");
+                    progressBackground.setAttribute("cy", "20");
+                    progressBackground.setAttribute("r", "18");
+
+                    const progressValue = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    progressValue.setAttribute("class", "progress-value");
+                    progressValue.setAttribute("cx", "20");
+                    progressValue.setAttribute("cy", "20");
+                    progressValue.setAttribute("r", "18");
+                    progressValue.setAttribute("stroke-dasharray", "113.1");
+                    progressValue.setAttribute("stroke-dashoffset", "56.55");  // Example for 50% completion
+
+                    progressCircle.appendChild(progressBackground);
+                    progressCircle.appendChild(progressValue);
+                    progressRing.appendChild(progressCircle);
+
+                    // Emoji in the center of progress ring
+                    const emoji = document.createElement("span");
+                    emoji.classList.add("emoji");
+                    emoji.textContent = newHabit.emoji;  // Using the emoji saved in localStorage
+
+                    progressRing.appendChild(emoji);
+
+                    // Add the progress ring to the card
+                    challengeInfo.appendChild(progressRing);
+
+                    // Add habit info text (title and goal)
+                    const infoText = document.createElement("div");
+                    infoText.classList.add("info-text");
+
+                    const habitTitle = document.createElement("h3");
+                    habitTitle.textContent = newHabit.name;  // Habit name
+                    const goalText = document.createElement("p");
+                    goalText.textContent = `${newHabit.goal} times`;  // Habit goal
+
+                    infoText.appendChild(habitTitle);
+                    infoText.appendChild(goalText);
+
+                    challengeInfo.appendChild(infoText);
+
+                    // Add the edit button
+                    const editButton = document.createElement("button");
+                    editButton.classList.add("tracker-add-btn");
+                    editButton.innerHTML = `<img src="img/edit.png" alt="Edit" class="edit-icon">`;
+
+                    challengeCard.appendChild(challengeInfo);
+                    challengeCard.appendChild(editButton);
+
+                    // Insert the new card into the "Current Challenges" section
+                    document.getElementById("current-challenges").appendChild(challengeCard);
+
+                    // Clear the habit data from localStorage after adding the card
+                    localStorage.removeItem("newHabit");
+                }
+            });
+
+        </script>
+
+
 </body>
 
 </html>
