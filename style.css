@@ -782,19 +782,37 @@ label {
   color: #000000;
   margin-right: 50px;
 }
-
 .edit-button {
-  background-color: #ffffff;
-  /* Grey box */
+  background-color: #ffffff; /* Grey box */
   border: 1px solid #dedede;
   padding: 6px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 150px;
-  /* Pushes the button to the right */
+  margin-left: 0; /* Remove excessive margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Mobile-friendly adjustments */
+@media (max-width: 480px) {
+  .goal-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px; /* Space between input and button */
+  }
+
+  .edit-button {
+    width: 36px; /* Smaller button size */
+    height: 36px;
+    padding: 4px; /* Reduced padding for mobile */
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
 
 
 .goal-frequency {
