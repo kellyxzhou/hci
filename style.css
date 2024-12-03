@@ -493,18 +493,17 @@ body {
 }
 
 .tracker-add-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 14px; /* Rounded corners */
-  border: 2px solid #EAECF0;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 20px;
+  background-color: #ffffff; /* Grey box */
+  border: 1px solid #dedede;
+  padding: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  display: flex; /* Enables flexbox */
-  align-items: center; /* Vertically centers content */
-  justify-content: center; /* Horizontally centers content */
-  padding: 0; /* Removes default padding to prevent shifting */
+  font-size: 18px;
+  color: #000000;
+  margin-left: 60px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
