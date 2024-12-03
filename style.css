@@ -158,6 +158,16 @@ body {
   font-size: 14px;
 }
 
+.tracker-nav-item.active {
+  color: #61B89E; /* Makes the text green */
+}
+
+.tracker-nav-item.active .nav-icon {
+  filter: invert(46%) sepia(44%) saturate(426%) hue-rotate(117deg) brightness(91%) contrast(85%);
+  /* Adjusts the icon to match the green color */
+}
+
+
 .nav-item.active {
   color: #61B89E;
 }
@@ -731,7 +741,26 @@ label {
   border: none;
   text-align: center;
   background-color: #ffffff;
+  transition: border-color 0.3s ease;
 }
+
+.number-error-popup {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+.goal-input:invalid {
+  border: 2px solid red;
+}
+
 
 .goal-text {
   font-size: 14px;
@@ -970,9 +999,9 @@ label {
 
 
 .profile-container {
+  padding-top: 90px;
   width: 100%;
-  max-width: 430px;
-  padding: 100px;
+  max-width: 400px;
   background-color: white;
   box-sizing: border-box;
   border-radius: 16px;
@@ -1016,6 +1045,9 @@ label {
 
 .info-item {
   margin-bottom: 10px;
+  max-width: 350px;
+  align-items: center;
+  margin-left: 15px;
 }
 
 .info-item label {

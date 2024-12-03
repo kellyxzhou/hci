@@ -84,3 +84,47 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.querySelector('#goal').addEventListener('input', function (event) {
+    const input = event.target;
+    const value = input.value;
+
+    // Remove invalid characters like e, E, +, -
+    if (/[^0-9]/.test(value) || value.includes('e') || value.includes('E')) {
+        input.value = value.replace(/[^0-9]/g, ''); // Keep only numbers
+
+        // Show the popup only once
+        if (!document.querySelector('.number-error-popup')) {
+            const popup = document.createElement('div');
+            popup.textContent = 'Please input a number';
+            popup.classList.add('number-error-popup');
+
+            // Style the popup
+            popup.style.position = 'absolute';
+            popup.style.backgroundColor = '#ffdddd';
+            popup.style.border = '1px solid red';
+            popup.style.padding = '8px';
+            popup.style.borderRadius = '4px';
+            popup.style.color = '#333';
+            popup.style.fontSize = '14px';
+            popup.style.fontWeight = 'bold';
+            popup.style.top = `${input.offsetTop + input.offsetHeight + 5}px`;
+            popup.style.left = `${input.offsetLeft}px`;
+            popup.style.zIndex = '1000';
+
+            // Add popup to the parent container
+            input.parentElement.appendChild(popup);
+
+            // Remove popup after 2 seconds
+            setTimeout(() => popup.remove(), 2000);
+        }
+    } else {
+        // Clear border on valid input
+        input.style.border = '';
+        const existingPopup = document.querySelector('.number-error-popup');
+        if (existingPopup) existingPopup.remove();
+    }
+});
+
+
+
