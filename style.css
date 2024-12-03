@@ -495,22 +495,19 @@ body {
 .tracker-add-btn {
   width: 36px;
   height: 36px;
-  border-radius: 14px;
+  border-radius: 14px; /* Rounded corners */
   border: 2px solid #EAECF0;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
+  padding: 0; /* Removes default padding to prevent shifting */
 }
 
-/* Responsive styling for smaller screens */
-@media (max-width: 480px) {
-  .tracker-add-btn {
-    width: 28px; /* Smaller width for mobile */
-    height: 28px; /* Smaller height for mobile */
-    font-size: 16px; /* Adjust font size to fit */
-  }
-}
+
 
 
 .tracker-emoji {
@@ -790,7 +787,7 @@ label {
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 0; /* Remove excessive margin */
+  margin-left: 60px; 
   display: flex;
   align-items: center;
   justify-content: center;
