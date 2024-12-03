@@ -503,6 +503,16 @@ body {
   cursor: pointer;
 }
 
+/* Responsive styling for smaller screens */
+@media (max-width: 480px) {
+  .tracker-add-btn {
+    width: 28px; /* Smaller width for mobile */
+    height: 28px; /* Smaller height for mobile */
+    font-size: 16px; /* Adjust font size to fit */
+  }
+}
+
+
 .tracker-emoji {
   width: 36px;
   height: 36px;
