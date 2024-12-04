@@ -51,7 +51,8 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribute space between items */
+  justify-content: space-between;
+  /* Distribute space between items */
   width: 100%;
   padding: 10px 5px;
 }
@@ -60,7 +61,8 @@ body {
   font-size: 18px;
   color: black;
   text-decoration: none;
-  margin-right: 15px; /* Space between the button and title */
+  margin-right: 15px;
+  /* Space between the button and title */
 }
 
 .title {
@@ -76,10 +78,13 @@ body {
   font-weight: 600;
   color: black;
   margin: 0;
-  position: absolute; /* Position title in the center */
+  position: absolute;
+  /* Position title in the center */
   left: 50%;
-  transform: translateX(-50%); /* Center the title horizontally */
-  text-align: center; /* Ensure text is centered within the element */
+  transform: translateX(-50%);
+  /* Center the title horizontally */
+  text-align: center;
+  /* Ensure text is centered within the element */
 }
 
 
@@ -328,7 +333,8 @@ body {
   border-radius: 19px;
   background-color: #fff;
   margin-bottom: 8px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle drop shadow */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  /* Subtle drop shadow */
 }
 
 /* Rank number, icon, and name grouped together */
@@ -375,7 +381,7 @@ body {
   width: 100%;
   max-width: 390px;
   /* iPhone 14 max width */
-  padding: 100px 20px 20px;
+  padding: 30px 20px 20px;
   /* Increased top padding */
   box-sizing: border-box;
 
@@ -705,7 +711,8 @@ body {
   margin-right: 10px;
   border-radius: 20px;
   transition: background-color 0.3s, border 0.3s;
-  border: 2px solid #f1f1f1; /* Add a grey border */
+  border: 2px solid #f1f1f1;
+  /* Add a grey border */
 }
 
 .date-item.selected {
@@ -1079,6 +1086,7 @@ label {
   transition: background-color 0.2s, transform 0.1s;
   margin-bottom: 100px;
 }
+
 .add-habit-btn:active {
   background-color: #52a188;
   transform: scale(0.98);
