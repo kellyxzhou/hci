@@ -98,6 +98,8 @@ body {
 
 .welcome-section {
   padding-top: 0;
+  width: 100%;
+  max-width: 400px;
 }
 
 .welcome-section h2 {
@@ -547,6 +549,23 @@ body {
 
 
 
+.tracker-edit-btn {
+  background-color: #ffffff;
+  /* Grey box */
+  border: 1px solid #dedede;
+  padding: 6px 6px;
+  /* 6px for top/bottom, 12px for left/right */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #000000;
+  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .tracker-emoji {
   width: 36px;
@@ -663,12 +682,6 @@ body {
   z-index: 1000;
 }
 
-
-.title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #333;
-}
 
 .back-button {
   font-size: 24px;
@@ -850,7 +863,7 @@ label {
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 110px;
+  margin-left: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1137,7 +1150,7 @@ label {
 
 .info-item {
   margin-bottom: 10px;
-  max-width: 350px;
+  max-width: 300px;
   align-items: center;
   margin-left: 15px;
 }
