@@ -8,8 +8,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  /* Full viewport height for centering */
 }
 
 .container {
@@ -22,6 +20,30 @@ body {
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
+  overflow-y: auto;
+  /* Allows scrolling if content overflows */
+}
+
+
+.homeContainer {
+  width: 390px;
+  height: 200%;
+  background-color: white;
+  /* Phone screen background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow-y: auto;
+  /* Allows scrolling if content overflows */
+}
+
+
+.trackerContainer {
+  width: 390px;
+  height: 1000%;
+  background-color: white;
   overflow-y: auto;
   /* Allows scrolling if content overflows */
 }
@@ -63,15 +85,6 @@ body {
 
 
 
-.homeContainer {
-  width: 100%;
-  max-width: 390px;
-  /* iPhone 14 max width */
-  padding: 0px 20px 20px;
-  /* Increased top padding */
-  box-sizing: border-box;
-
-}
 
 .welcome-section {
   padding-top: 0;
@@ -140,6 +153,8 @@ body {
 
 .participants {
   display: flex;
+  font-size: 14px;
+  color: #666;
   align-items: center;
 }
 
@@ -229,6 +244,7 @@ body {
 .leaderboard-container {
   padding-top: 90px;
   width: 100%;
+  height: 150%;
   max-width: 400px;
 }
 
@@ -1046,6 +1062,23 @@ label {
   transition: background-color 0.2s, transform 0.1s;
 }
 
+
+
+.add-habit-tracker2 {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  padding: 12px;
+  background-color: #61B89E;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, transform 0.1s;
+  margin-bottom: 100px;
+}
 .add-habit-btn:active {
   background-color: #52a188;
   transform: scale(0.98);
