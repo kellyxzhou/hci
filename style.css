@@ -1223,3 +1223,33 @@ label {
   color: #61B89E;
   text-decoration: none;
 }
+
+.edit-mode-button {
+  color: #61B89E;
+  border: none;
+  background-color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.edit-mode-button:hover {
+  background-color: #45a049;
+}
+
+.tracker-delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.tracker-delete-btn:hover {
+  background-color: darkred;
+}
