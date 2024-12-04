@@ -12,7 +12,6 @@ body {
   /* Full viewport height for centering */
 }
 
-/* iPhone 14 Pro Max dimensions */
 .container {
   width: 390px;
   height: 932px;
@@ -25,6 +24,40 @@ body {
   box-sizing: border-box;
   overflow-y: auto;
   /* Allows scrolling if content overflows */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute space between items */
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.back-button {
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+  margin-right: 15px; /* Space between the button and title */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+}
+
+
+.HabitTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+  position: absolute; /* Position title in the center */
+  left: 50%;
+  transform: translateX(-50%); /* Center the title horizontally */
+  text-align: center; /* Ensure text is centered within the element */
 }
 
 @media (max-width: 768px) {
@@ -226,27 +259,7 @@ body {
   max-width: 400px;
 }
 
-.header {
-  display: flex;
-  max-width: 390px;
-  padding-bottom: 0px;
-  align-items: center;
-  background: white;
-  justify-content: space-around;
-  margin: 0 auto;
-  position: sticky;
-  top: 0;
-  /* Ensure it's flush to the top */
-  z-index: 1000;
-}
 
-
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  color: black;
-  margin: 0;
-}
 
 .settings-icon {
   width: 24px;
@@ -679,7 +692,6 @@ body {
   white-space: nowrap;
   padding: 10px;
   border-radius: 8px;
-  background-color: #ffffff;
 }
 
 .date-selection::-webkit-scrollbar {
@@ -697,8 +709,27 @@ body {
   margin-right: 10px;
   border-radius: 20px;
   transition: background-color 0.3s, border 0.3s;
-  border: 2px solid transparent;
+  border: 2px solid #f1f1f1; /* Add a grey border */
 }
+
+.date-item.selected {
+  background-color: white;
+  color: #2c7a7b;
+  border-color: #2c7a7b;
+}
+
+.date-item:hover {
+  background-color: rgba(44, 122, 123, 0.1);
+  border-color: #2c7a7b;
+  color: #2c7a7b;
+}
+
+.date-item span {
+  display: block;
+  font-size: 14px;
+  color: #6c757d;
+}
+
 
 .date-item.selected {
   background-color: white;
@@ -819,7 +850,7 @@ label {
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 60px;
+  margin-left: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -985,7 +1016,7 @@ label {
 }
 
 .toggle-switch input:checked+.slider:before {
-  transform: translateX(18px);
+  transform: translateX(13px);
 }
 
 
