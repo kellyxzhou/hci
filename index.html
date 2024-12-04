@@ -14,10 +14,10 @@
     <div class="homeContainer">
         <div class="tracker-page-container">
             <!-- Header -->
-          <div class="header">
-              <h1 class="title">Homepage</h1>
-              <!-- <img src="img/settings.png" alt="Settings" class="settings-icon"> -->
-          </div>
+            <div class="header">
+                <h1 class="title">Homepage</h1>
+                <!-- <img src="img/settings.png" alt="Settings" class="settings-icon"> -->
+            </div>
 
             <div class="welcome-section">
                 <h2>Welcome back, <span class="name">Jessica!</span></h2>
@@ -66,7 +66,6 @@
                         <a href="tracker.html" class="join-button">Join</a>
                     </div>
                 </form>
-                
 
                 <form class="challenge-card3">
                     <div class="challenge-header">
@@ -86,31 +85,43 @@
                     </div>
                 </form>
             </div>
-           </div>
         </div>
+    </div>
 
 
-            <div class="tracker-bottom-nav">
-                <a href="index.html" class="tracker-nav-item active">
-                    <img src="img/home2.svg" alt="Home" class="nav-icon" />
-                    Home
-                </a>
-                <a href="tracker.html" class="tracker-nav-item">
-                    <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-                    Tracker
-                </a>
-                <a href="Leaderboard.html" class="tracker-nav-item">
-                    <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
-                    Ranking
-                </a>
-                <a href="profile.html" class="tracker-nav-item">
-                    <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-                    Profile
-                </a>
-            </div>
-        </div>
+    <div class="tracker-bottom-nav">
+        <a href="index.html" class="tracker-nav-item active">
+            <img src="img/home2.svg" alt="Home" class="nav-icon" />
+            Home
+        </a>
+        <a href="tracker.html" class="tracker-nav-item">
+            <img src="img/add.svg" alt="Tracker" class="nav-icon" />
+            Tracker
+        </a>
+        <a href="Leaderboard.html" class="tracker-nav-item">
+            <img src="img/ranking.svg" alt="Ranking" class="nav-icon" />
+            Ranking
+        </a>
+        <a href="profile.html" class="tracker-nav-item">
+            <img src="img/profile.svg" alt="Profile" class="nav-icon" />
+            Profile
+        </a>
+    </div>
+    </div>
 
     </div>
+
+
+    <script>
+        // Retrieve the name from localStorage and update the greeting
+        window.onload = function () {
+            const name = localStorage.getItem('userName');
+            if (name) {
+                document.querySelector('.name').textContent = name;
+            }
+        }
+    </script>
+
 </body>
 
 </html>

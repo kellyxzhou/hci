@@ -48,3 +48,17 @@ document.getElementById('profile-pic-input').addEventListener('change', function
     }
 });
 
+// Save profile information to localStorage
+function saveProfile() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    // Save the name to localStorage
+    localStorage.setItem('userName', name);
+
+    console.log("Profile saved:", { name, email, phone });
+
+    // Disable inputs after saving
+    toggleEdit();
+}
