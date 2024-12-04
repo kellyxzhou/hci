@@ -323,9 +323,10 @@ body {
   /* Keeps points aligned to the right */
   padding: 10px 16px;
   /* Adds padding with rounded corners */
-  border-radius: 8px;
+  border-radius: 19px;
   background-color: #fff;
   margin-bottom: 8px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle drop shadow */
 }
 
 /* Rank number, icon, and name grouped together */
