@@ -155,89 +155,87 @@
             </div>
         </div>
         <script>
-// Dynamically add a new habit card in tracker.html
-document.addEventListener("DOMContentLoaded", function () {
-    const newHabit = JSON.parse(localStorage.getItem("newHabit"));
-    if (newHabit) {
-        // Create new habit card
-        const challengeCard = document.createElement("div");
-        challengeCard.classList.add("tracker-challenge-card");
+            // Add a new habit to localStorage and reload all habits
+            document.addEventListener("DOMContentLoaded", function () {
+                // Check if there are any new habits stored in localStorage
+                const storedHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
 
-        const challengeInfo = document.createElement("div");
-        challengeInfo.classList.add("tracker-challenge-info");
+                // Create new habit card for each habit in storedHabits
+                storedHabits.forEach(function (habit) {
+                    const challengeCard = document.createElement("div");
+                    challengeCard.classList.add("tracker-challenge-card");
 
-        // Create the progress ring
-        const progressRing = document.createElement("div");
-        progressRing.classList.add("progress-ring");
-        const progressCircle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        progressCircle.setAttribute("class", "progress-circle");
-        progressCircle.setAttribute("width", "40");
-        progressCircle.setAttribute("height", "40");
+                    const challengeInfo = document.createElement("div");
+                    challengeInfo.classList.add("tracker-challenge-info");
 
-        const progressBackground = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        progressBackground.setAttribute("class", "progress-background");
-        progressBackground.setAttribute("cx", "20");
-        progressBackground.setAttribute("cy", "20");
-        progressBackground.setAttribute("r", "18");
+                    // Create the progress ring
+                    const progressRing = document.createElement("div");
+                    progressRing.classList.add("progress-ring");
+                    const progressCircle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    progressCircle.setAttribute("class", "progress-circle");
+                    progressCircle.setAttribute("width", "40");
+                    progressCircle.setAttribute("height", "40");
 
-        const progressValue = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        progressValue.setAttribute("class", "progress-value");
-        progressValue.setAttribute("cx", "20");
-        progressValue.setAttribute("cy", "20");
-        progressValue.setAttribute("r", "18");
-        progressValue.setAttribute("stroke-dasharray", "113.1");
-        progressValue.setAttribute("stroke-dashoffset", "56.55");  // Example for 50% completion
+                    const progressBackground = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    progressBackground.setAttribute("class", "progress-background");
+                    progressBackground.setAttribute("cx", "20");
+                    progressBackground.setAttribute("cy", "20");
+                    progressBackground.setAttribute("r", "18");
 
-        progressCircle.appendChild(progressBackground);
-        progressCircle.appendChild(progressValue);
-        progressRing.appendChild(progressCircle);
+                    const progressValue = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    progressValue.setAttribute("class", "progress-value");
+                    progressValue.setAttribute("cx", "20");
+                    progressValue.setAttribute("cy", "20");
+                    progressValue.setAttribute("r", "18");
+                    progressValue.setAttribute("stroke-dasharray", "113.1");
+                    progressValue.setAttribute("stroke-dashoffset", "56.55"); // Example for 50% completion
 
-        // Emoji in the center of progress ring
-        const emoji = document.createElement("span");
-        emoji.classList.add("emoji");
-        emoji.textContent = newHabit.emoji;  // Using the emoji saved in localStorage
+                    progressCircle.appendChild(progressBackground);
+                    progressCircle.appendChild(progressValue);
+                    progressRing.appendChild(progressCircle);
 
-        progressRing.appendChild(emoji);
+                    // Emoji in the center of progress ring
+                    const emoji = document.createElement("span");
+                    emoji.classList.add("emoji");
+                    emoji.textContent = habit.emoji; // Using the emoji stored in localStorage
 
-        // Add the progress ring to the card
-        challengeInfo.appendChild(progressRing);
+                    progressRing.appendChild(emoji);
 
-        // Add habit info text (title and goal)
-        const infoText = document.createElement("div");
-        infoText.classList.add("info-text");
+                    // Add the progress ring to the card
+                    challengeInfo.appendChild(progressRing);
 
-        const habitTitle = document.createElement("h3");
-        habitTitle.textContent = newHabit.name;  // Habit name
-        const goalText = document.createElement("p");
-        goalText.textContent = `${newHabit.goal} times`;  // Habit goal
+                    // Add habit info text (title and goal)
+                    const infoText = document.createElement("div");
+                    infoText.classList.add("info-text");
 
-        infoText.appendChild(habitTitle);
-        infoText.appendChild(goalText);
+                    const habitTitle = document.createElement("h3");
+                    habitTitle.textContent = habit.name; // Habit name
+                    const goalText = document.createElement("p");
+                    goalText.textContent = `${habit.goal} times`; // Habit goal
 
-        challengeInfo.appendChild(infoText);
+                    infoText.appendChild(habitTitle);
+                    infoText.appendChild(goalText);
 
-        // Add the edit button
-        const editButton = document.createElement("button");
-        editButton.classList.add("tracker-edit-btn");
-        editButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
-        
-        // Add the `onclick` event to navigate to the specific page
-        editButton.onclick = function () {
-            window.location.href = "addHabit.html"; // Redirect to addhabit.html
-        };
+                    challengeInfo.appendChild(infoText);
 
-        challengeCard.appendChild(challengeInfo);
-        challengeCard.appendChild(editButton);
+                    // Add the edit button
+                    const editButton = document.createElement("button");
+                    editButton.classList.add("tracker-edit-btn");
+                    editButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
 
-        // Insert the new card into the "Current Challenges" section
-        document.getElementById("current-challenges").appendChild(challengeCard);
+                    // Add the `onclick` event to navigate to the specific page
+                    editButton.onclick = function () {
+                        window.location.href = "addHabit.html"; // Redirect to addhabit.html
+                    };
 
-        // Clear the habit data from localStorage after adding the card
-        localStorage.removeItem("newHabit");
-    }
-});
+                    challengeCard.appendChild(challengeInfo);
+                    challengeCard.appendChild(editButton);
 
-</script>
+                    // Insert the new card into the "Current Challenges" section
+                    document.getElementById("current-challenges").appendChild(challengeCard);
+                });
+            });
+        </script>
 </body>
 
 </html>
