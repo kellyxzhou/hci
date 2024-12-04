@@ -87,14 +87,9 @@ body {
   /* Ensure text is centered within the element */
 }
 
-
-
-
-
 .welcome-section {
-  padding-top: 0;
   width: 100%;
-  padding: 10px 5px;
+  padding: 5px 5px;
 }
 
 .welcome-section h2 {
@@ -1216,7 +1211,6 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
 }
 
 .title {
