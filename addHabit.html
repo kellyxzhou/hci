@@ -125,6 +125,22 @@
             // Store the updated habits array back into localStorage
             localStorage.setItem("allHabits", JSON.stringify(allHabits));
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch the habit data from localStorage
+            const newHabit = JSON.parse(localStorage.getItem("newHabit"));
+
+            if (newHabit) {
+                // Pre-fill the fields with the habit data
+                document.getElementById("habit-name").value = newHabit.name;
+                document.getElementById("goal").value = newHabit.goal;
+                document.querySelector('.time-input').value = newHabit.reminderTime;
+                document.querySelector('.frequency-select').value = newHabit.reminderFrequency;
+
+                // Optionally, set a placeholder or emoji
+                document.querySelector('.emoji').textContent = newHabit.emoji;
+            }
+        });
     </script>
 </body>
 

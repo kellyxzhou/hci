@@ -237,6 +237,8 @@
                     editCardButton.classList.add("tracker-edit-btn");
                     editCardButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
                     editCardButton.onclick = function () {
+                        // Store the habit data in localStorage and redirect to the prefilled page
+                        localStorage.setItem("newHabit", JSON.stringify(habit));
                         window.location.href = "addHabit.html"; // Redirect to addhabit.html
                     };
 
