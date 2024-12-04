@@ -29,12 +29,33 @@ function saveProfile() {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
 
-    // Normally, here you would send data to a backend server or save it to localStorage
+    // Save the updated profile info to localStorage
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPhone', phone);
+
     console.log("Profile saved:", { name, email, phone });
 
     // Disable inputs after saving
     toggleEdit();
 }
+
+// Load profile data from localStorage when the page loads
+window.onload = function () {
+    const name = localStorage.getItem('userName');
+    const email = localStorage.getItem('userEmail');
+    const phone = localStorage.getItem('userPhone');
+
+    if (name) {
+        document.getElementById('name').value = name;
+    }
+    if (email) {
+        document.getElementById('email').value = email;
+    }
+    if (phone) {
+        document.getElementById('phone').value = phone;
+    }
+};
 
 // Handle profile picture change
 document.getElementById('profile-pic-input').addEventListener('change', function (event) {
@@ -47,18 +68,3 @@ document.getElementById('profile-pic-input').addEventListener('change', function
         reader.readAsDataURL(file);
     }
 });
-
-// Save profile information to localStorage
-function saveProfile() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-
-    // Save the name to localStorage
-    localStorage.setItem('userName', name);
-
-    console.log("Profile saved:", { name, email, phone });
-
-    // Disable inputs after saving
-    toggleEdit();
-}
