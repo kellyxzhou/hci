@@ -60,32 +60,6 @@ body {
   text-align: center; /* Ensure text is centered within the element */
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .challenge-card {
-    margin-bottom: 15px;
-    padding: 12px;
-  }
-
-  .welcome-section h2 {
-    font-size: clamp(20px, 4vw, 28px);
-  }
-}
-
-@media (max-width: 480px) {
-  .bottom-nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-  }
-
-  .nav-item {
-    margin-bottom: 10px;
-  }
-}
 
 
 
@@ -146,7 +120,15 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   /* Added box shadow */
 }
-
+.challenge-card3 {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* Added box shadow */
+}
 
 .challenge-header {
   display: flex;
@@ -1150,7 +1132,7 @@ label {
   margin-bottom: 10px;
   max-width: 300px;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 12px;
 }
 
 .info-item label {
