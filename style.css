@@ -93,33 +93,6 @@ body {
   font-size: 18px;
 }
 
-.challenges-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.challenges-header h3 {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.view-all {
-  color: #61B89E;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.challenge-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  padding: 15px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  /* Added box shadow */
-}
 .challenge-card3 {
   background: #fff;
   border: 1px solid #eee;
@@ -130,10 +103,23 @@ body {
   /* Added box shadow */
 }
 
+
+.challenge-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* Added box shadow */
+}
+
+
 .challenge-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .challenge-title {
@@ -844,7 +830,7 @@ label {
   cursor: pointer;
   font-size: 18px;
   color: #000000;
-  margin-left: 95px;
+  margin-left: 105px;
   display: flex;
   align-items: center;
   justify-content: center;
