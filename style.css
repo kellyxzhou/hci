@@ -27,6 +27,32 @@ body {
   /* Allows scrolling if content overflows */
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .challenge-card {
+    margin-bottom: 15px;
+    padding: 12px;
+  }
+
+  .welcome-section h2 {
+    font-size: clamp(20px, 4vw, 28px);
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
+  }
+}
 
 .homeContainer {
   width: 100%;
@@ -143,10 +169,9 @@ body {
   background: white;
   display: flex;
   justify-content: space-around;
-  padding: 20px 16px;
+  padding: 10px 5%;
+  z-index: 1000;
   border-top: 1px solid #eee;
-  max-width: 390px;
-  margin: 0 auto;
 }
 
 .nav-item {
@@ -155,17 +180,15 @@ body {
   align-items: center;
   color: #666;
   text-decoration: none;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
 }
 
 .tracker-nav-item.active {
   color: #61B89E;
-  /* Makes the text green */
 }
 
 .tracker-nav-item.active .nav-icon {
   filter: invert(46%) sepia(44%) saturate(426%) hue-rotate(117deg) brightness(91%) contrast(85%);
-  /* Adjusts the icon to match the green color */
 }
 
 
@@ -543,7 +566,7 @@ body {
   display: flex;
   justify-content: space-around;
   position: fixed;
-  bottom: 15px;
+  bottom: 0px;
   left: 0;
   align-items: center;
   width: 390px;
