@@ -87,6 +87,8 @@ body {
   }
 }
 
+
+
 .homeContainer {
   width: 100%;
   max-width: 390px;
@@ -94,6 +96,7 @@ body {
   padding: 0px 20px 20px;
   /* Increased top padding */
   box-sizing: border-box;
+
 }
 
 .welcome-section {
@@ -424,11 +427,6 @@ body {
   color: #333;
 }
 
-.view-all {
-  font-size: 14px;
-  color: #61B89E;
-  font-weight: bold;
-}
 
 .tracker-challenge-card {
   display: flex;
