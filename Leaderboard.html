@@ -15,117 +15,104 @@
         <!-- Header -->
         <div class="header">
             <h1 class="title">Ranking</h1>
-            <!-- <img src="img/settings.png" alt="Settings" class="settings-icon"> -->
         </div>
 
       <div class="leaderboard">
-        <div class="top-three">
-          <div class="place second">
-            <div class="circle"></div>
-            <div class="place-circle">2</div>
-            <p>Friend 2</p>
-          </div>
-          <div class="place first">
-            <div class="circle big-circle"></div>
-            <div class="place-circle">1</div>
-            <p>Friend 1</p>
-          </div>
-          <div class="place third">
-            <div class="circle"></div>
-            <div class="place-circle">3</div>
-            <p>Friend 3</p>
-          </div>
+        <div id="top-three" class="top-three">
+          <!-- Top three will be dynamically rendered here -->
         </div>
 
-        <!-- Other friends with rank, icon, name, and points -->
-        <div class="friend-list">
-          <!-- Friend 4 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">4</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 4</span>
-            </div>
-            <span class="points">48 pts</span>
-          </div>
-
-          <!-- Friend 5 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">5</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 5</span>
-            </div>
-            <span class="points">42 pts</span>
-          </div>
-
-          <!-- You (highlighted row) -->
-          <div class="friend-row" style="background-color: #61B89E; color: #fff;">
-            <div class="friend-info">
-              <span class="rank-number">6</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">You</span>
-            </div>
-            <span class="points">40 pts</span>
-          </div>
-
-          <!-- Friend 7 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">7</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 7</span>
-            </div>
-            <span class="points">38 pts</span>
-          </div>
-
-          <!-- Friend 8 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">8</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 8</span>
-            </div>
-            <span class="points">34 pts</span>
-          </div>
-
-          <!-- Friend 9 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">9</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 9</span>
-            </div>
-            <span class="points">32 pts</span>
-          </div>
-
-          <!-- Friend 10 -->
-          <div class="friend-row">
-            <div class="friend-info">
-              <span class="rank-number">10</span>
-              <div class="profile-pic"></div>
-              <span class="friend-name">Friend 10</span>
-            </div>
-            <span class="points">30 pts</span>
-          </div>
+        <div id="friend-list" class="friend-list">
+          <!-- Friend list will be dynamically rendered here -->
         </div>
+      </div>
 
+      <div class="tracker-bottom-nav">
+        <a href="index.html" class="tracker-nav-item">
+          <img src="img/home.svg" alt="Home" class="nav-icon" />
+          Home
+        </a>
+        <a href="tracker.html" class="tracker-nav-item">
+          <img src="img/add.svg" alt="Tracker" class="nav-icon" />
+          Tracker
+        </a>
+        <a href="Leaderboard.html" class="tracker-nav-item active">
+          <img src="img/ranking2.svg" alt="Ranking" class="nav-icon" />
+          Ranking
+        </a>
+        <a href="profile.html" class="tracker-nav-item">
+          <img src="img/profile.svg" alt="Profile" class="nav-icon" />
+          Profile
+        </a>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize user's default score to 0 in localStorage
+      if (!localStorage.getItem("userScore")) {
+        localStorage.setItem("userScore", 0);
+      }
 
-        <div class="tracker-bottom-nav">
-          <a href="index.html" class="tracker-nav-item">
-            <img src="img/home.svg" alt="Home" class="nav-icon" />
-            Home
-          </a>
-          <a href="tracker.html" class="tracker-nav-item">
-            <img src="img/add.svg" alt="Tracker" class="nav-icon" />
-            Tracker
-          </a>
-          <a href="Leaderboard.html" class="tracker-nav-item active">
-            <img src="img/ranking2.svg" alt="Ranking" class="nav-icon" />
-            Ranking
-          </a>
-          <a href="profile.html" class="tracker-nav-item">
-            <img src="img/profile.svg" alt="Profile" class="nav-icon" />
-            Profile
-          </a>
+      // Fetch the user's score
+      const userScore = parseInt(localStorage.getItem("userScore")) || 0;
+
+      // Hardcoded data for friends
+      const leaderboardData = [
+        { name: "Friend 1", score: 120 },
+        { name: "Friend 2", score: 100 },
+        { name: "Friend 3", score: 80 },
+        { name: "Friend 4", score: 48 },
+        { name: "Friend 5", score: 42 },
+        { name: "Friend 7", score: 38 },
+        { name: "Friend 8", score: 34 },
+        { name: "Friend 9", score: 32 },
+        { name: "Friend 10", score: 30 },
+        { name: "You", score: userScore } // Add your score dynamically
+      ];
+
+      // Sort leaderboard data by score (descending)
+      leaderboardData.sort((a, b) => b.score - a.score);
+
+      // Render the top three
+      const topThree = document.getElementById("top-three");
+      topThree.innerHTML = leaderboardData
+        .slice(0, 3)
+        .map((entry, index) => {
+          const place = ["first", "second", "third"][index];
+          const bigCircleClass = index === 0 ? "big-circle" : "";
+          return `
+            <div class="place ${place}">
+              <div class="circle ${bigCircleClass}"></div>
+              <div class="place-circle">${index + 1}</div>
+              <p>${entry.name}</p>
+            </div>
+          `;
+        })
+        .join("");
+
+      // Render the rest of the leaderboard
+      const friendList = document.getElementById("friend-list");
+      friendList.innerHTML = leaderboardData
+        .slice(3)
+        .map((entry, index) => {
+          const isYou = entry.name === "You" ? "style='background-color: #61B89E; color: #fff;'" : "";
+          return `
+            <div class="friend-row" ${isYou}>
+              <div class="friend-info">
+                <span class="rank-number">${index + 4}</span>
+                <div class="profile-pic"></div>
+                <span class="friend-name">${entry.name}</span>
+              </div>
+              <span class="points">${entry.score} pts</span>
+            </div>
+          `;
+        })
+        .join("");
+    });
+  </script>
+</body>
+
+</html>
