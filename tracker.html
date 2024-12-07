@@ -43,9 +43,10 @@
                             <p>20 points</p>
                         </div>
                     </div>
-                    <button class="tracker-edit-btn" onclick="window.location.href='Carpool.html'">
+                    <button class="tracker-edit-btn" onclick="updateScore(20); window.location.href='Carpool.html'">
                         <img src="img/Edit.svg" alt="Edit" class="edit-icon">
                     </button>
+                    
                 </div>
 
                 <!-- Habit cards will be dynamically inserted here -->
@@ -74,7 +75,8 @@
                             <p>10 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="window.location.href='Showers.html'">+</button>
+                    <button class="tracker-add-btn" onclick="updateScore(10); window.location.href='Showers.html'">+</button>
+
                 </div>
 
                 <div class="tracker-challenge-card">
@@ -93,7 +95,8 @@
                             <p>20 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="window.location.href='Walk.html'">+</button>
+                    <button class="tracker-add-btn" onclick="updateScore(20); window.location.href='Walk.html'">+</button>
+
                 </div>
                 <div class="tracker-challenge-card">
                     <div class="tracker-challenge-info">
@@ -111,7 +114,8 @@
                             <p>10 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="window.location.href='Plants.html'">+</button>
+                    <button class="tracker-add-btn" onclick="updateScore(10); window.location.href='Plants.html'">+</button>
+
                 </div>
 
                 <div class="tracker-challenge-card">
@@ -130,7 +134,8 @@
                             <p>30 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="window.location.href='Electricity.html'">+</button>
+                    <button class="tracker-add-btn" onclick="updateScore(30); window.location.href='Electricity.html'">+</button>
+
                 </div>
 
                 <!-- Add Habit Link -->
@@ -177,6 +182,21 @@
                         button.style.display = isEditMode ? "inline-block" : "none";
                     });
                 });
+
+
+
+                // update when user select a challenge
+                function updateScore(points) {
+                    // Get the current score from localStorage
+                     let userScore = parseInt(localStorage.getItem("userScore")) || 0;
+
+                    // Add the points for the completed challenge
+                    userScore += points;
+
+                    // Save the updated score to localStorage
+                    localStorage.setItem("userScore", userScore);
+                }
+
 
                 // Loop through each habit and render it in the "Current Challenges" section
                 allHabits.forEach(function (habit, index) {
@@ -267,6 +287,33 @@
             });
 
         </script>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Initialize user's score if not already in localStorage
+                if (!localStorage.getItem("userScore")) {
+                    localStorage.setItem("userScore", 0);
+                }
+        
+                // Add any other existing JavaScript code here...
+        
+                // Function to update the score
+                function updateScore(points) {
+                    // Get the current score from localStorage
+                    let userScore = parseInt(localStorage.getItem("userScore")) || 0;
+        
+                    // Add the points
+                    userScore += points;
+        
+                    // Save the updated score
+                    localStorage.setItem("userScore", userScore);
+                }
+        
+                // Make the function globally accessible
+                window.updateScore = updateScore;
+            });
+        </script>
+        
 </body>
 
 </html>
