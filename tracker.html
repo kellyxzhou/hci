@@ -174,8 +174,8 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                let allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
-                let completedHabits = JSON.parse(localStorage.getItem("completedHabits")) || [];
+                const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+                const completedHabits = JSON.parse(localStorage.getItem("completedHabits")) || [];
                 const currentChallengesSection = document.getElementById("current-challenges");
                 const completedGoalsSection = document.getElementById("completed-goals");
 
@@ -188,7 +188,6 @@
                 function renderCurrentHabits() {
                     currentChallengesSection.innerHTML = `<div class="section-header">
             <h2 class="section-title">Current Challenges</h2>
-            <button id="edit-button" class="edit-mode-button">Edit</button>
         </div>`; // Reset to include header
                     allHabits.forEach((habit) => {
                         createHabitCard(habit, "current");
@@ -269,16 +268,22 @@
 
                     challengeCard.appendChild(challengeInfo);
 
-                    // Add the Edit button (only for current challenges)
                     if (type === "current") {
+                        // Add the Edit button
                         const editCardButton = document.createElement("button");
                         editCardButton.classList.add("tracker-edit-btn");
                         editCardButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
                         editCardButton.onclick = function () {
-                            localStorage.setItem("editingHabitId", habit.id); // Save the habit ID being edited
+                            console.log("Editing Habit:", habit); // Debugging: Ensure correct habit is being edited
+
+                            // Save the habit data and its ID for editing
+                            localStorage.setItem("editingHabitId", habit.id); // Save the unique habit ID
                             localStorage.setItem("habitToEdit", JSON.stringify(habit)); // Save the habit data
-                            window.location.href = "addHabit.html"; // Navigate to the edit page
+
+                            // Navigate to the addHabit.html page
+                            window.location.href = "addHabit.html";
                         };
+
                         challengeCard.appendChild(editCardButton);
 
                         // Add the Complete button
@@ -287,8 +292,9 @@
                         completeButton.textContent = "Complete Goal";
                         completeButton.addEventListener("click", function () {
                             habit.completed = habit.goal;
-                            allHabits = allHabits.filter(h => h.id !== habit.id); // Remove from current challenges
+                            allHabits.splice(allHabits.indexOf(habit), 1); // Remove from current challenges
                             completedHabits.push(habit); // Add to completed habits
+                            updateScore(10); // Add 10 points to the user's score
                             localStorage.setItem("allHabits", JSON.stringify(allHabits));
                             localStorage.setItem("completedHabits", JSON.stringify(completedHabits));
                             renderHabits(); // Re-render both sections
@@ -303,26 +309,15 @@
                     }
                 }
 
-                // Handle edits (when redirected back from the edit page)
-                function handleEdit() {
-                    const editingHabitId = localStorage.getItem("editingHabitId");
-                    if (!editingHabitId) return;
-
-                    const updatedHabit = JSON.parse(localStorage.getItem("habitToEdit"));
-                    const index = allHabits.findIndex(habit => habit.id === editingHabitId);
-                    if (index !== -1) {
-                        allHabits[index] = updatedHabit; // Update the habit
-                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
-                    }
-                    localStorage.removeItem("editingHabitId"); // Clean up
-                    localStorage.removeItem("habitToEdit");
-                    renderHabits(); // Re-render updated habits
+                // Update the user's score
+                function updateScore(points) {
+                    let userScore = parseInt(localStorage.getItem("userScore")) || 0;
+                    userScore += points;
+                    localStorage.setItem("userScore", userScore);
                 }
 
-                handleEdit(); // Check and handle edits
                 renderHabits(); // Initial rendering
             });
-
         </script>
 
         <script>

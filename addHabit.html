@@ -79,17 +79,29 @@
             const habitToEdit = JSON.parse(localStorage.getItem("habitToEdit"));
             const editingHabitId = localStorage.getItem("editingHabitId");
 
-            // Prefill fields if editing an existing habit
-            if (habitToEdit) {
-                document.getElementById("habit-name").value = habitToEdit.name;
-                document.getElementById("goal").value = habitToEdit.goal;
-                document.querySelector('.time-input').value = habitToEdit.reminderTime || "06:00";
-                document.querySelector('.frequency-select').value = habitToEdit.reminderFrequency || "daily";
-                document.getElementById("completed-count").value = habitToEdit.completed || 0;
+            if (!editingHabitId || !habitToEdit) {
+                console.error("No habit to edit found.");
+                // Optional: Redirect back to tracker.html or show an error message
+                window.location.href = "tracker.html";
+                return;
             }
 
-            // Add or update habit functionality
-            document.getElementById("add-habit-btn").addEventListener("click", function () {
+            console.log("Habit to edit:", habitToEdit);
+            console.log("Editing habit ID:", editingHabitId);
+
+            // Prefill the form with habit data
+            document.getElementById("habit-name").value = habitToEdit.name || "";
+            document.getElementById("goal").value = habitToEdit.goal || 1;
+            document.querySelector('.time-input').value = habitToEdit.reminderTime || "06:00";
+            document.querySelector('.frequency-select').value = habitToEdit.reminderFrequency || "daily";
+            document.getElementById("completed-count").value = habitToEdit.completed || 0;
+
+            // Change button text to "Edit Habit"
+            const addHabitButton = document.getElementById("add-habit-btn");
+            addHabitButton.textContent = "Edit Habit";
+
+            // Save habit functionality
+            addHabitButton.addEventListener("click", function () {
                 const habitName = document.getElementById("habit-name").value.trim();
                 const goal = parseInt(document.getElementById("goal").value);
                 const reminderTime = document.querySelector('.time-input').value;
@@ -98,46 +110,49 @@
 
                 // Validate inputs
                 if (!habitName || isNaN(goal) || goal <= 0) {
-                    alert("Please enter valid habit details!");
+                    alert("Please provide valid inputs!");
                     return;
                 }
 
-                // Create or update habit object
-                const newHabit = {
-                    id: editingHabitId || Date.now().toString(), // Use existing ID if editing, otherwise generate a new one
+                const updatedHabit = {
+                    id: editingHabitId || Date.now().toString(), // Use existing ID for editing or generate a new one
                     name: habitName,
                     goal: goal,
-                    emoji: habitToEdit ? habitToEdit.emoji : "💡", // Retain emoji if editing
+                    emoji: habitToEdit ? habitToEdit.emoji : "💡", // Retain existing emoji
                     reminderTime: reminderTime,
                     reminderFrequency: reminderFrequency,
                     completed: completedCount
                 };
 
-                // Get the current habits from localStorage, or create an empty array if none exist
+                console.log("Updated Habit:", updatedHabit);
+
                 let allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
 
                 if (editingHabitId) {
-                    // If editing, find the habit by ID and update it
+                    // Update the habit with the matching ID
                     const habitIndex = allHabits.findIndex(habit => habit.id === editingHabitId);
                     if (habitIndex !== -1) {
-                        allHabits[habitIndex] = newHabit; // Update the existing habit
+                        allHabits[habitIndex] = updatedHabit; // Update the habit
+                    } else {
+                        console.error("Habit to edit not found in allHabits");
                     }
                 } else {
-                    // If adding, push the new habit
-                    allHabits.push(newHabit);
+                    // Add a new habit
+                    allHabits.push(updatedHabit);
                 }
 
-                // Store the updated habits array back into localStorage
+                // Save the updated habits
                 localStorage.setItem("allHabits", JSON.stringify(allHabits));
 
-                // Clear editing data from localStorage
-                localStorage.removeItem("habitToEdit");
+                // Clear editing data
                 localStorage.removeItem("editingHabitId");
+                localStorage.removeItem("habitToEdit");
 
-                // Navigate back to the tracker page
+                // Navigate back to the tracker
                 window.location.href = "tracker.html";
             });
         });
+
 
     </script>
 

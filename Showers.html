@@ -108,11 +108,13 @@
             const reminderFrequency = document.querySelector('.frequency-select').value;
 
             const newHabit = {
+                id: Date.now().toString(), // Unique ID based on the current timestamp
                 name: habitName,
                 goal: goal,
-                emoji: "🚿",
+                emoji: "💡", // Default emoji
                 reminderTime: reminderTime,
                 reminderFrequency: reminderFrequency,
+                completed: 0 // Default completion
             };
 
             // Get existing habits from localStorage
