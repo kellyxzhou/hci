@@ -32,9 +32,6 @@
                     <div class="goal-input-group">
                         <input type="number" id="goal" class="goal-input" placeholder="0" value="4">
                         <span class="goal2-text">times</span>
-                        <button class="edit-button">
-                            <img src="img/Edit.svg" alt="Edit" class="edit-icon">
-                        </button>
                     </div>
                     <span class="goal-text">or more per day</span>
                 </div>
@@ -63,6 +60,13 @@
                     </div>
                 </div>
                 <button class="add-reminder-btn">Add Reminder</button>
+            </div>
+
+            <!-- New Completion Counter Section -->
+            <div class="input-section" id="completion-section">
+                <label for="completed-count">COMPLETED</label>
+                <input type="number" id="completed-count" class="completed-input" value="0" placeholder="0">
+                <span class="completed-text">times</span>
             </div>
 
             <!-- Add Habit Button -->
@@ -106,6 +110,7 @@
             const goal = document.getElementById("goal").value;
             const reminderTime = document.querySelector('.time-input').value;
             const reminderFrequency = document.querySelector('.frequency-select').value;
+            const completedCount = document.getElementById("completed-count").value; // Get the completed count
 
             // Create new habit object
             const newHabit = {
@@ -114,6 +119,7 @@
                 emoji: "💡", // Example emoji for this habit
                 reminderTime: reminderTime,
                 reminderFrequency: reminderFrequency,
+                completed: parseInt(completedCount) // Store the completed count
             };
 
             // Get the current habits from localStorage, or create an empty array if none exist
@@ -136,6 +142,7 @@
                 document.getElementById("goal").value = newHabit.goal;
                 document.querySelector('.time-input').value = newHabit.reminderTime;
                 document.querySelector('.frequency-select').value = newHabit.reminderFrequency;
+                document.querySelector('#completed-count').value = newHabit.completed || 0; // Pre-fill the completed count
 
                 // Optionally, set a placeholder or emoji
                 document.querySelector('.emoji').textContent = newHabit.emoji;

@@ -7,7 +7,6 @@
     <title>Tracker Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -16,7 +15,6 @@
             <!-- Header -->
             <div class="header">
                 <h1 class="title">Tracker</h1>
-                <!-- <img src="img/settings.png" alt="Settings" class="settings-icon"> -->
             </div>
 
             <div class="tracker-section" id="current-challenges">
@@ -46,13 +44,11 @@
                     <button class="tracker-edit-btn" onclick="updateScore(20); window.location.href='Carpool.html'">
                         <img src="img/Edit.svg" alt="Edit" class="edit-icon">
                     </button>
-                    
+
                 </div>
 
                 <!-- Habit cards will be dynamically inserted here -->
             </div>
-
-
 
             <div class="tracker-section">
                 <div class="section-header">
@@ -75,7 +71,8 @@
                             <p>10 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="updateScore(10); window.location.href='Showers.html'">+</button>
+                    <button class="tracker-add-btn"
+                        onclick="updateScore(10); window.location.href='Showers.html'">+</button>
 
                 </div>
 
@@ -95,7 +92,8 @@
                             <p>20 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="updateScore(20); window.location.href='Walk.html'">+</button>
+                    <button class="tracker-add-btn"
+                        onclick="updateScore(20); window.location.href='Walk.html'">+</button>
 
                 </div>
                 <div class="tracker-challenge-card">
@@ -114,7 +112,8 @@
                             <p>10 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="updateScore(10); window.location.href='Plants.html'">+</button>
+                    <button class="tracker-add-btn"
+                        onclick="updateScore(10); window.location.href='Plants.html'">+</button>
 
                 </div>
 
@@ -134,13 +133,24 @@
                             <p>30 points</p>
                         </div>
                     </div>
-                    <button class="tracker-add-btn" onclick="updateScore(30); window.location.href='Electricity.html'">+</button>
+                    <button class="tracker-add-btn"
+                        onclick="updateScore(30); window.location.href='Electricity.html'">+</button>
 
+                </div>
+
+                <!-- Completed Goals Section -->
+                <div class="tracker-section" id="completed-goals">
+                    <div class="section-header">
+                        <h2 class="section-title">Completed Goals</h2>
+                    </div>
+                    <!-- Completed goals will be dynamically inserted here -->
                 </div>
 
                 <!-- Add Habit Link -->
                 <a href="addHabit.html" class="add-habit-tracker2">Add Habit</a>
             </div>
+
+
 
             <div class="tracker-bottom-nav">
                 <a href="index.html" class="tracker-nav-item">
@@ -161,54 +171,46 @@
                 </a>
             </div>
         </div>
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                // Fetch all habits from localStorage
                 const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+                const currentChallengesSection = document.getElementById("current-challenges");
+                const completedGoalsSection = document.getElementById("completed-goals");
 
                 // Edit mode flag
                 let isEditMode = false;
 
                 // Toggle edit mode
                 const editButton = document.getElementById("edit-button");
-                const currentChallengesSection = document.getElementById("current-challenges");
-
-                // Add the Edit button functionality
                 editButton.addEventListener("click", function () {
                     isEditMode = !isEditMode;
-                    // Show or hide the trashcan buttons based on the edit mode
                     const deleteButtons = document.querySelectorAll(".tracker-delete-btn");
                     deleteButtons.forEach(button => {
                         button.style.display = isEditMode ? "inline-block" : "none";
                     });
                 });
 
-
-
-                // update when user select a challenge
-                function updateScore(points) {
-                    // Get the current score from localStorage
-                     let userScore = parseInt(localStorage.getItem("userScore")) || 0;
-
-                    // Add the points for the completed challenge
-                    userScore += points;
-
-                    // Save the updated score to localStorage
-                    localStorage.setItem("userScore", userScore);
+                function renderHabits() {
+                    // Clear only dynamically inserted habit cards, preserve static HTML
+                    const habitCards = currentChallengesSection.querySelectorAll(".tracker-challenge-card:not(:first-child)");
+                    habitCards.forEach(card => card.remove());
+                    allHabits.forEach((habit, index) => {
+                        createHabitCard(habit, index);
+                    });
                 }
 
-
-                // Loop through each habit and render it in the "Current Challenges" section
-                allHabits.forEach(function (habit, index) {
+                // Create a single habit card
+                function createHabitCard(habit, index) {
                     const challengeCard = document.createElement("div");
                     challengeCard.classList.add("tracker-challenge-card");
 
                     const challengeInfo = document.createElement("div");
                     challengeInfo.classList.add("tracker-challenge-info");
 
-                    // Create the progress ring
                     const progressRing = document.createElement("div");
                     progressRing.classList.add("progress-ring");
+
                     const progressCircle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                     progressCircle.setAttribute("class", "progress-circle");
                     progressCircle.setAttribute("width", "40");
@@ -226,7 +228,7 @@
                     progressValue.setAttribute("cy", "20");
                     progressValue.setAttribute("r", "18");
                     progressValue.setAttribute("stroke-dasharray", "113.1");
-                    progressValue.setAttribute("stroke-dashoffset", "56.55");
+                    progressValue.setAttribute("stroke-dashoffset", (113.1 * (1 - habit.completed / habit.goal)).toFixed(2));
 
                     progressCircle.appendChild(progressBackground);
                     progressCircle.appendChild(progressValue);
@@ -235,8 +237,8 @@
                     const emoji = document.createElement("span");
                     emoji.classList.add("emoji");
                     emoji.textContent = habit.emoji;
-
                     progressRing.appendChild(emoji);
+
                     challengeInfo.appendChild(progressRing);
 
                     const infoText = document.createElement("div");
@@ -244,76 +246,119 @@
 
                     const habitTitle = document.createElement("h3");
                     habitTitle.textContent = habit.name;
+
                     const goalText = document.createElement("p");
-                    goalText.textContent = `${habit.goal} times`;
+                    goalText.textContent = `Goal: ${habit.goal} times`;
+
+                    const completedText = document.createElement("p");
+                    completedText.textContent = `Completed: ${habit.completed || 0} / ${habit.goal} times`;
 
                     infoText.appendChild(habitTitle);
                     infoText.appendChild(goalText);
+                    infoText.appendChild(completedText);
 
                     challengeInfo.appendChild(infoText);
 
-                    // Add the edit button (appears in the card itself)
+                    // Edit Button
                     const editCardButton = document.createElement("button");
                     editCardButton.classList.add("tracker-edit-btn");
                     editCardButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
                     editCardButton.onclick = function () {
-                        // Store the habit data in localStorage and redirect to the prefilled page
-                        localStorage.setItem("newHabit", JSON.stringify(habit));
-                        window.location.href = "addHabit.html"; // Redirect to addhabit.html
+                        localStorage.setItem("editingHabitIndex", index); // Save the index for editing
+                        window.location.href = "addHabit.html";
                     };
 
-                    // Add the delete button (trashcan button)
+                    // Complete Button
+                    const completeButton = document.createElement("button");
+                    completeButton.classList.add("tracker-complete-btn");
+                    completeButton.innerHTML = "Complete Goal";
+                    completeButton.addEventListener("click", function () {
+                        habit.completed = habit.goal; // Mark habit as complete
+                        allHabits.splice(index, 1); // Remove from current challenges
+                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                        moveToCompletedGoals(habit);
+                        renderHabits(); // Re-render the current challenges
+                    });
+
+                    // Delete Button
                     const deleteButton = document.createElement("button");
                     deleteButton.classList.add("tracker-delete-btn");
                     deleteButton.innerHTML = "🗑️";
-                    deleteButton.style.display = isEditMode ? "inline-block" : "none";  // Only show in edit mode
-                    deleteButton.onclick = function () {
-                        // Remove the habit from localStorage
-                        allHabits.splice(index, 1);  // Remove the habit at the current index
-                        localStorage.setItem("allHabits", JSON.stringify(allHabits));  // Update localStorage
+                    deleteButton.style.display = isEditMode ? "inline-block" : "none";
+                    deleteButton.addEventListener("click", function () {
+                        allHabits.splice(index, 1);
+                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                        renderHabits(); // Re-render after deletion
+                    });
 
-                        // Remove the card from the DOM
-                        challengeCard.remove();
-                    };
-
-                    // Append all the elements to the card
                     challengeCard.appendChild(challengeInfo);
                     challengeCard.appendChild(editCardButton);
+                    challengeCard.appendChild(completeButton);
                     challengeCard.appendChild(deleteButton);
 
-                    // Insert the new card into the "Current Challenges" section
                     currentChallengesSection.appendChild(challengeCard);
-                });
+                }
+
+                // Move habit to completed goals section
+                function moveToCompletedGoals(habit) {
+                    const completedGoalCard = document.createElement("div");
+                    completedGoalCard.classList.add("tracker-challenge-card");
+
+                    const challengeInfo = document.createElement("div");
+                    challengeInfo.classList.add("tracker-challenge-info");
+
+                    const habitTitle = document.createElement("h3");
+                    habitTitle.textContent = habit.name;
+
+                    const goalText = document.createElement("p");
+                    goalText.textContent = `Completed Goal: ${habit.goal} times`;
+
+                    challengeInfo.appendChild(habitTitle);
+                    challengeInfo.appendChild(goalText);
+
+                    completedGoalCard.appendChild(challengeInfo);
+                    completedGoalsSection.appendChild(completedGoalCard);
+                }
+
+                renderHabits(); // Initial rendering
             });
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const staticContent = currentChallengesSection.querySelectorAll(".tracker-challenge-card");
+                if (!staticContent.length) {
+                    renderHabits();
+                }
+            });
+
+
         </script>
-        
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 // Initialize user's score if not already in localStorage
                 if (!localStorage.getItem("userScore")) {
                     localStorage.setItem("userScore", 0);
                 }
-        
+
                 // Add any other existing JavaScript code here...
-        
+
                 // Function to update the score
                 function updateScore(points) {
                     // Get the current score from localStorage
                     let userScore = parseInt(localStorage.getItem("userScore")) || 0;
-        
+
                     // Add the points
                     userScore += points;
-        
+
                     // Save the updated score
                     localStorage.setItem("userScore", userScore);
                 }
-        
+
                 // Make the function globally accessible
                 window.updateScore = updateScore;
             });
         </script>
-        
+
 </body>
 
 </html>

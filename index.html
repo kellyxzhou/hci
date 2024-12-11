@@ -121,6 +121,32 @@
                 document.querySelector('.name').textContent = name;
             }
         }
+
+        // Add habit functionality
+        document.getElementById("join-button").addEventListener("click", function () {
+            const habitName = document.getElementById("habit-name").value;
+            const goal = document.getElementById("goal").value;
+            const reminderTime = document.querySelector('.time-input').value;
+            const reminderFrequency = document.querySelector('.frequency-select').value;
+
+            const newHabit = {
+                name: habitName,
+                goal: goal,
+                emoji: "💡", // Example emoji for this habit
+                reminderTime: reminderTime,
+                reminderFrequency: reminderFrequency,
+            };
+
+            // Get existing habits from localStorage
+            const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+
+            // Add the new habit to the habits array
+            allHabits.push(newHabit);
+
+            // Save updated habits array to localStorage
+            localStorage.setItem("allHabits", JSON.stringify(allHabits));
+        });
+    </script>
     </script>
 
 </body>
