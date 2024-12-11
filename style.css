@@ -1253,3 +1253,41 @@ label {
 .tracker-delete-btn:hover {
   background-color: darkred;
 }
+
+/* Style for the Complete Goal button */
+.tracker-complete-btn {
+  background: white;
+  /* Gradient background */
+  color: #61B89E;
+  /* Text color */
+  font-family: 'Poppins', sans-serif;
+  /* Font style */
+  font-size: 14px;
+  /* Font size */
+
+  border: none;
+  /* Remove border */
+
+  cursor: pointer;
+  /* Pointer cursor on hover */
+
+
+}
+
+/* Hover effect */
+.tracker-complete-btn:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  /* Reverse gradient */
+  transform: scale(1.05);
+  /* Slightly enlarge the button */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  /* Enhance shadow */
+}
+
+/* Active/Pressed state */
+.tracker-complete-btn:active {
+  transform: scale(0.95);
+  /* Slightly shrink the button */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
