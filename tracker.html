@@ -254,14 +254,10 @@
                     const habitTitle = document.createElement("h3");
                     habitTitle.textContent = habit.name;
 
-                    const goalText = document.createElement("p");
-                    goalText.textContent = `Goal: ${habit.goal} times`;
-
                     const completedText = document.createElement("p");
                     completedText.textContent = `Completed: ${habit.completed || 0} / ${habit.goal} times`;
 
                     infoText.appendChild(habitTitle);
-                    infoText.appendChild(goalText);
                     if (type === "current") infoText.appendChild(completedText);
 
                     challengeInfo.appendChild(infoText);
@@ -269,6 +265,21 @@
                     challengeCard.appendChild(challengeInfo);
 
                     if (type === "current") {
+                        // Add the Complete button
+                        const completeButton = document.createElement("button");
+                        completeButton.classList.add("tracker-complete-btn");
+                        completeButton.textContent = "Complete Goal";
+                        completeButton.addEventListener("click", function () {
+                            habit.completed = habit.goal;
+                            allHabits.splice(allHabits.indexOf(habit), 1); // Remove from current challenges
+                            completedHabits.push(habit); // Add to completed habits
+                            updateScore(10); // Add 10 points to the user's score
+                            localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                            localStorage.setItem("completedHabits", JSON.stringify(completedHabits));
+                            renderHabits(); // Re-render both sections
+                        });
+                        challengeCard.appendChild(completeButton);
+
                         // Add the Edit button
                         const editCardButton = document.createElement("button");
                         editCardButton.classList.add("tracker-edit-btn");
@@ -284,22 +295,12 @@
                             window.location.href = "addHabit.html";
                         };
 
-                        challengeCard.appendChild(editCardButton);
-
-                        // Add the Complete button
-                        const completeButton = document.createElement("button");
-                        completeButton.classList.add("tracker-complete-btn");
-                        completeButton.textContent = "Complete Goal";
-                        completeButton.addEventListener("click", function () {
-                            habit.completed = habit.goal;
-                            allHabits.splice(allHabits.indexOf(habit), 1); // Remove from current challenges
-                            completedHabits.push(habit); // Add to completed habits
-                            updateScore(10); // Add 10 points to the user's score
-                            localStorage.setItem("allHabits", JSON.stringify(allHabits));
-                            localStorage.setItem("completedHabits", JSON.stringify(completedHabits));
-                            renderHabits(); // Re-render both sections
-                        });
-                        challengeCard.appendChild(completeButton);
+                        // Add buttons to the card, with "Complete" button on the left
+                        const buttonContainer = document.createElement("div");
+                        buttonContainer.classList.add("button-container");
+                        buttonContainer.appendChild(completeButton);
+                        buttonContainer.appendChild(editCardButton);
+                        challengeCard.appendChild(buttonContainer);
                     }
 
                     if (type === "current") {

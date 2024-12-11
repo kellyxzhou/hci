@@ -1274,20 +1274,34 @@ label {
 
 }
 
-/* Hover effect */
-.tracker-complete-btn:hover {
-  background: linear-gradient(to right, #2575fc, #6a11cb);
-  /* Reverse gradient */
-  transform: scale(1.05);
-  /* Slightly enlarge the button */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  /* Enhance shadow */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Align buttons to the right */
+  margin-top: 10px;
 }
 
-/* Active/Pressed state */
-.tracker-complete-btn:active {
-  transform: scale(0.95);
-  /* Slightly shrink the button */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
+.tracker-complete-btn,
+.tracker-edit-btn {
+  color: #61B89E;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  margin: 0;
+  /* Remove any spacing between buttons */
+}
+
+
+
+/* Remove space between buttons */
+.tracker-complete-btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.tracker-edit-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
