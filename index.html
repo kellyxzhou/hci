@@ -122,33 +122,49 @@
             }
         }
 
-        // Add habit functionality
-        document.getElementById("join-button").addEventListener("click", function () {
-            const habitName = document.getElementById("habit-name").value;
-            const goal = document.getElementById("goal").value;
-            const reminderTime = document.querySelector('.time-input').value;
-            const reminderFrequency = document.querySelector('.frequency-select').value;
+        // Retrieve the name from localStorage and update the greeting
+        window.onload = function () {
+            const name = localStorage.getItem('userName');
+            if (name) {
+                document.querySelector('.name').textContent = name;
+            }
+        }
 
-            const newHabit = {
-                id: Date.now().toString(), // Unique ID based on the current timestamp
-                name: habitName,
-                goal: goal,
-                emoji: "💡", // Default emoji
-                reminderTime: reminderTime,
-                reminderFrequency: reminderFrequency,
-                completed: 0 // Default completion
-            };
+        // Add join functionality for challenges
+        document.querySelectorAll('.join-button').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
 
-            // Get existing habits from localStorage
-            const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+                // Find the associated challenge card
+                const challengeCard = this.closest('.challenge-card');
+                const title = challengeCard.querySelector('.challenge-title').textContent.trim();
+                const points = parseInt(challengeCard.querySelector('.challenge-type').textContent.trim());
 
-            // Add the new habit to the habits array
-            allHabits.push(newHabit);
+                // Create a new habit object
+                const newHabit = {
+                    id: Date.now().toString(), // Unique ID based on the current timestamp
+                    name: title,
+                    goal: 1, // Default goal for joined challenges
+                    emoji: "🕒",
+                    reminderTime: "06:00", // Default reminder time
+                    reminderFrequency: "daily", // Default reminder frequency
+                    completed: 0, // Default completion
+                    points: points // Points for the challenge
+                };
 
-            // Save updated habits array to localStorage
-            localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                // Get existing habits from localStorage
+                const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+
+                // Add the new habit to the habits array
+                allHabits.push(newHabit);
+
+                // Save updated habits array to localStorage
+                localStorage.setItem("allHabits", JSON.stringify(allHabits));
+
+                // Redirect to the tracker page
+                window.location.href = "tracker.html";
+            });
         });
-    </script>
     </script>
 
 </body>
