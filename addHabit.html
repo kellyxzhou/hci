@@ -75,79 +75,72 @@
 
     <script src="script.js"></script>
     <script>
-        // Select date function
-        function selectDate(element) {
-            const items = document.querySelectorAll('.date-item');
-            items.forEach(item => item.classList.remove('selected'));
-            element.classList.add('selected');
-        }
-
-        // Generate calendar function
-        function generateCalendar() {
-            const dateSelection = document.getElementById('dateSelection');
-            const currentDate = new Date();
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-            const firstDay = new Date(year, month, 1);
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateItem = document.createElement('div');
-                dateItem.className = 'date-item';
-                dateItem.innerHTML = `${day}<br><span>${firstDay.toLocaleString('default', { weekday: 'short' })}</span>`;
-                dateItem.onclick = function () { selectDate(this); };
-                firstDay.setDate(firstDay.getDate() + 1);
-                dateSelection.appendChild(dateItem);
-            }
-        }
-
-        window.onload = generateCalendar;
-
-        // Add habit functionality
-        document.getElementById("add-habit-btn").addEventListener("click", function () {
-            const habitName = document.getElementById("habit-name").value;
-            const goal = document.getElementById("goal").value;
-            const reminderTime = document.querySelector('.time-input').value;
-            const reminderFrequency = document.querySelector('.frequency-select').value;
-            const completedCount = document.getElementById("completed-count").value; // Get the completed count
-
-            // Create new habit object
-            const newHabit = {
-                name: habitName,
-                goal: goal,
-                emoji: "💡", // Example emoji for this habit
-                reminderTime: reminderTime,
-                reminderFrequency: reminderFrequency,
-                completed: parseInt(completedCount) // Store the completed count
-            };
-
-            // Get the current habits from localStorage, or create an empty array if none exist
-            const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
-
-            // Add the new habit to the array
-            allHabits.push(newHabit);
-
-            // Store the updated habits array back into localStorage
-            localStorage.setItem("allHabits", JSON.stringify(allHabits));
-        });
-
         document.addEventListener("DOMContentLoaded", function () {
-            // Fetch the habit data from localStorage
-            const newHabit = JSON.parse(localStorage.getItem("newHabit"));
+            const habitToEdit = JSON.parse(localStorage.getItem("habitToEdit"));
+            const editingHabitId = localStorage.getItem("editingHabitId");
 
-            if (newHabit) {
-                // Pre-fill the fields with the habit data
-                document.getElementById("habit-name").value = newHabit.name;
-                document.getElementById("goal").value = newHabit.goal;
-                document.querySelector('.time-input').value = newHabit.reminderTime;
-                document.querySelector('.frequency-select').value = newHabit.reminderFrequency;
-                document.querySelector('#completed-count').value = newHabit.completed || 0; // Pre-fill the completed count
-
-                // Optionally, set a placeholder or emoji
-                document.querySelector('.emoji').textContent = newHabit.emoji;
+            // Prefill fields if editing an existing habit
+            if (habitToEdit) {
+                document.getElementById("habit-name").value = habitToEdit.name;
+                document.getElementById("goal").value = habitToEdit.goal;
+                document.querySelector('.time-input').value = habitToEdit.reminderTime || "06:00";
+                document.querySelector('.frequency-select').value = habitToEdit.reminderFrequency || "daily";
+                document.getElementById("completed-count").value = habitToEdit.completed || 0;
             }
+
+            // Add or update habit functionality
+            document.getElementById("add-habit-btn").addEventListener("click", function () {
+                const habitName = document.getElementById("habit-name").value.trim();
+                const goal = parseInt(document.getElementById("goal").value);
+                const reminderTime = document.querySelector('.time-input').value;
+                const reminderFrequency = document.querySelector('.frequency-select').value;
+                const completedCount = parseInt(document.getElementById("completed-count").value) || 0;
+
+                // Validate inputs
+                if (!habitName || isNaN(goal) || goal <= 0) {
+                    alert("Please enter valid habit details!");
+                    return;
+                }
+
+                // Create or update habit object
+                const newHabit = {
+                    id: editingHabitId || Date.now().toString(), // Use existing ID if editing, otherwise generate a new one
+                    name: habitName,
+                    goal: goal,
+                    emoji: habitToEdit ? habitToEdit.emoji : "💡", // Retain emoji if editing
+                    reminderTime: reminderTime,
+                    reminderFrequency: reminderFrequency,
+                    completed: completedCount
+                };
+
+                // Get the current habits from localStorage, or create an empty array if none exist
+                let allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+
+                if (editingHabitId) {
+                    // If editing, find the habit by ID and update it
+                    const habitIndex = allHabits.findIndex(habit => habit.id === editingHabitId);
+                    if (habitIndex !== -1) {
+                        allHabits[habitIndex] = newHabit; // Update the existing habit
+                    }
+                } else {
+                    // If adding, push the new habit
+                    allHabits.push(newHabit);
+                }
+
+                // Store the updated habits array back into localStorage
+                localStorage.setItem("allHabits", JSON.stringify(allHabits));
+
+                // Clear editing data from localStorage
+                localStorage.removeItem("habitToEdit");
+                localStorage.removeItem("editingHabitId");
+
+                // Navigate back to the tracker page
+                window.location.href = "tracker.html";
+            });
         });
+
     </script>
+
 </body>
 
 </html>
