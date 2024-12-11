@@ -175,33 +175,37 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const allHabits = JSON.parse(localStorage.getItem("allHabits")) || [];
+                const completedHabits = JSON.parse(localStorage.getItem("completedHabits")) || [];
                 const currentChallengesSection = document.getElementById("current-challenges");
                 const completedGoalsSection = document.getElementById("completed-goals");
 
-                // Edit mode flag
-                let isEditMode = false;
-
-                // Toggle edit mode
-                const editButton = document.getElementById("edit-button");
-                editButton.addEventListener("click", function () {
-                    isEditMode = !isEditMode;
-                    const deleteButtons = document.querySelectorAll(".tracker-delete-btn");
-                    deleteButtons.forEach(button => {
-                        button.style.display = isEditMode ? "inline-block" : "none";
-                    });
-                });
-
+                // Render all current and completed habits
                 function renderHabits() {
-                    // Clear only dynamically inserted habit cards, preserve static HTML
-                    const habitCards = currentChallengesSection.querySelectorAll(".tracker-challenge-card:not(:first-child)");
-                    habitCards.forEach(card => card.remove());
-                    allHabits.forEach((habit, index) => {
-                        createHabitCard(habit, index);
+                    renderCurrentHabits();
+                    renderCompletedHabits();
+                }
+
+                function renderCurrentHabits() {
+                    currentChallengesSection.innerHTML = `<div class="section-header">
+            <h2 class="section-title">Current Challenges</h2>
+            <button id="edit-button" class="edit-mode-button">Edit</button>
+        </div>`; // Reset to include header
+                    allHabits.forEach((habit) => {
+                        createHabitCard(habit, "current");
                     });
                 }
 
-                // Create a single habit card
-                function createHabitCard(habit, index) {
+                function renderCompletedHabits() {
+                    completedGoalsSection.innerHTML = `<div class="section-header">
+            <h2 class="section-title">Completed Challenges</h2>
+        </div>`; // Reset to include header
+                    completedHabits.forEach((habit) => {
+                        createHabitCard(habit, "completed");
+                    });
+                }
+
+                // Create a habit card for current or completed sections
+                function createHabitCard(habit, type) {
                     const challengeCard = document.createElement("div");
                     challengeCard.classList.add("tracker-challenge-card");
 
@@ -227,8 +231,12 @@
                     progressValue.setAttribute("cx", "20");
                     progressValue.setAttribute("cy", "20");
                     progressValue.setAttribute("r", "18");
-                    progressValue.setAttribute("stroke-dasharray", "113.1");
-                    progressValue.setAttribute("stroke-dashoffset", (113.1 * (1 - habit.completed / habit.goal)).toFixed(2));
+                    if (type === "current") {
+                        progressValue.setAttribute("stroke-dasharray", "113.1");
+                        progressValue.setAttribute("stroke-dashoffset", (113.1 * (1 - habit.completed / habit.goal)).toFixed(2));
+                    } else {
+                        progressValue.setAttribute("stroke-dashoffset", "0");
+                    }
 
                     progressCircle.appendChild(progressBackground);
                     progressCircle.appendChild(progressValue);
@@ -255,79 +263,64 @@
 
                     infoText.appendChild(habitTitle);
                     infoText.appendChild(goalText);
-                    infoText.appendChild(completedText);
+                    if (type === "current") infoText.appendChild(completedText);
 
                     challengeInfo.appendChild(infoText);
 
-                    // Edit Button
-                    const editCardButton = document.createElement("button");
-                    editCardButton.classList.add("tracker-edit-btn");
-                    editCardButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
-                    editCardButton.onclick = function () {
-                        localStorage.setItem("editingHabitIndex", index); // Save the index for editing
-                        window.location.href = "addHabit.html";
-                    };
-
-                    // Complete Button
-                    const completeButton = document.createElement("button");
-                    completeButton.classList.add("tracker-complete-btn");
-                    completeButton.innerHTML = "Complete Goal";
-                    completeButton.addEventListener("click", function () {
-                        habit.completed = habit.goal; // Mark habit as complete
-                        allHabits.splice(index, 1); // Remove from current challenges
-                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
-                        moveToCompletedGoals(habit);
-                        renderHabits(); // Re-render the current challenges
-                    });
-
-                    // Delete Button
-                    const deleteButton = document.createElement("button");
-                    deleteButton.classList.add("tracker-delete-btn");
-                    deleteButton.innerHTML = "🗑️";
-                    deleteButton.style.display = isEditMode ? "inline-block" : "none";
-                    deleteButton.addEventListener("click", function () {
-                        allHabits.splice(index, 1);
-                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
-                        renderHabits(); // Re-render after deletion
-                    });
-
                     challengeCard.appendChild(challengeInfo);
-                    challengeCard.appendChild(editCardButton);
-                    challengeCard.appendChild(completeButton);
-                    challengeCard.appendChild(deleteButton);
 
-                    currentChallengesSection.appendChild(challengeCard);
+                    // Add the Edit button (only for current challenges)
+                    if (type === "current") {
+                        const editCardButton = document.createElement("button");
+                        editCardButton.classList.add("tracker-edit-btn");
+                        editCardButton.innerHTML = `<img src="img/Edit.svg" alt="Edit" class="edit-icon">`;
+                        editCardButton.onclick = function () {
+                            localStorage.setItem("editingHabitId", habit.id); // Save the habit ID being edited
+                            localStorage.setItem("habitToEdit", JSON.stringify(habit)); // Save habit data
+                            window.location.href = "addHabit.html"; // Navigate to editing page
+                        };
+                        challengeCard.appendChild(editCardButton);
+
+                        // Add the Complete button
+                        const completeButton = document.createElement("button");
+                        completeButton.classList.add("tracker-complete-btn");
+                        completeButton.textContent = "Complete Goal";
+                        completeButton.addEventListener("click", function () {
+                            habit.completed = habit.goal;
+                            allHabits.splice(allHabits.indexOf(habit), 1); // Remove from current challenges
+                            completedHabits.push(habit); // Add to completed habits
+                            localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                            localStorage.setItem("completedHabits", JSON.stringify(completedHabits));
+                            renderHabits(); // Re-render both sections
+                        });
+                        challengeCard.appendChild(completeButton);
+                    }
+
+                    if (type === "current") {
+                        currentChallengesSection.appendChild(challengeCard);
+                    } else {
+                        completedGoalsSection.appendChild(challengeCard);
+                    }
                 }
 
-                // Move habit to completed goals section
-                function moveToCompletedGoals(habit) {
-                    const completedGoalCard = document.createElement("div");
-                    completedGoalCard.classList.add("tracker-challenge-card");
+                // Handle edits (when redirected back from the edit page)
+                function handleEdit() {
+                    const editingHabitId = localStorage.getItem("editingHabitId");
+                    if (!editingHabitId) return;
 
-                    const challengeInfo = document.createElement("div");
-                    challengeInfo.classList.add("tracker-challenge-info");
-
-                    const habitTitle = document.createElement("h3");
-                    habitTitle.textContent = habit.name;
-
-                    const goalText = document.createElement("p");
-                    goalText.textContent = `Completed Goal: ${habit.goal} times`;
-
-                    challengeInfo.appendChild(habitTitle);
-                    challengeInfo.appendChild(goalText);
-
-                    completedGoalCard.appendChild(challengeInfo);
-                    completedGoalsSection.appendChild(completedGoalCard);
+                    const updatedHabit = JSON.parse(localStorage.getItem("habitToEdit"));
+                    const index = allHabits.findIndex(habit => habit.id === editingHabitId);
+                    if (index !== -1) {
+                        allHabits[index] = updatedHabit; // Update the habit
+                        localStorage.setItem("allHabits", JSON.stringify(allHabits));
+                    }
+                    localStorage.removeItem("editingHabitId"); // Clean up
+                    localStorage.removeItem("habitToEdit");
+                    renderHabits(); // Re-render updated habits
                 }
 
+                handleEdit(); // Check and handle edits
                 renderHabits(); // Initial rendering
-            });
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const staticContent = currentChallengesSection.querySelectorAll(".tracker-challenge-card");
-                if (!staticContent.length) {
-                    renderHabits();
-                }
             });
 
 
